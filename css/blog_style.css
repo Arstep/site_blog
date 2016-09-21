@@ -1,4 +1,5 @@
 @import 'https://fonts.googleapis.com/css?family=Roboto';
+@import 'https://fonts.googleapis.com/css?family=Ubuntu+Condensed';
 body {font-family: 'Roboto', verdana, sans-serif}
 
 
@@ -145,30 +146,42 @@ body {font-family: 'Roboto', verdana, sans-serif}
 #second article:nth-of-type(2) {
     background: #45709A;
     width: 100%;
-    height: 500px;
+    height: 450px;
     text-align: center;
     overflow: hidden;
 }
 
-#second article:nth-of-type(2) img {
-    width: 120px;
-    margin-bottom: 1em;
+#category {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    top: 90px;
 }
 
-#second article:nth-of-type(2) a {
+#category a {
     float: left;
-    width: 250px;
-    margin: 130px auto;
+    width: 25%;
     display: block;
-    font: 1.5em  'Roboto', verdana, sans-serif;
     text-decoration: none;
+}
+
+#category h3 {
+    font: bold 1.7em 'Ubuntu Condensed', sans-serif;
     color: #FEFBE8;
     text-align: center;
-    line-height: 1.5em;
+    line-height: 3em;
     letter-spacing: 1px;
 }
 
+#category p {
+    margin: 0 0.5em;
+    color: #FEFBE8;
+    font-size: 1em;
+}
 
+#category img {
+    width: 100px;
+}
 
 
 
@@ -195,13 +208,42 @@ body {font-family: 'Roboto', verdana, sans-serif}
     box-shadow: 0 0 50px rgba(0,0,0,0.8);
 }
 
+
+
+
+
+
+
+
 #forty {
-    background: darkcyan;
-    min-height: 600px;
+    background: #282828;
     margin: 0 auto;
     width: 100%;
     max-width: 1920px;
     position: relative;
     -webkit-box-shadow: 0 0 50px rgba(0,0,0,0.8);
     box-shadow: 0 0 50px rgba(0,0,0,0.8);
+    overflow: hidden;
+}
+
+#forty article {
+    max-width: 900px;
+    margin: 50px auto;
+}
+
+#forty article a {
+    display: block;
+    float: left;
+    margin: 20px 35px 20px 35px;
+}
+
+#forty article a img {
+    height: 200px;
+}
+
+
+
+footer {
+    max-width: 1300px;
+    margin: 0 auto;
 }
