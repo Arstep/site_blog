@@ -1,5 +1,6 @@
 @import 'https://fonts.googleapis.com/css?family=Roboto';
 @import 'https://fonts.googleapis.com/css?family=Ubuntu+Condensed';
+@import 'https://fonts.googleapis.com/css?family=PT+Sans';
 body {font-family: 'Roboto', verdana, sans-serif}
 
 
@@ -66,9 +67,24 @@ body {font-family: 'Roboto', verdana, sans-serif}
     text-align: center;
     top: 150px;
     width: 100%;
+    color: rgb(238, 219, 188);
 }
 
+#first article h1 {
+    font: bold 4em 'PT Sans', sans-serif;
+    position: absolute;
+    top: 130px;
+    left: 10%;
+}
 
+#first article p {
+    font: 2em 'PT Sans', sans-serif;
+    position: relative;
+    top: 370px;
+    left: 15%;
+    width: 700px;
+    text-shadow: #101010 0 0 5px;
+}
 
 
 
@@ -176,6 +192,7 @@ body {font-family: 'Roboto', verdana, sans-serif}
 #category p {
     margin: 0 0.5em;
     color: #FEFBE8;
+    font-family: 'PT Sans', sans-serif;
     font-size: 1em;
 }
 
@@ -198,25 +215,6 @@ body {font-family: 'Roboto', verdana, sans-serif}
 
 #third {
     background: url(../img/gand.jpg) 50% 0 no-repeat fixed;
-
-    min-height: 750px;
-    margin: 0 auto;
-    width: 100%;
-    max-width: 1920px;
-    position: relative;
-    -webkit-box-shadow: 0 0 50px rgba(0,0,0,0.8);
-    box-shadow: 0 0 50px rgba(0,0,0,0.8);
-}
-
-
-
-
-
-
-
-
-#forty {
-    background: #282828;
     margin: 0 auto;
     width: 100%;
     max-width: 1920px;
@@ -224,22 +222,98 @@ body {font-family: 'Roboto', verdana, sans-serif}
     -webkit-box-shadow: 0 0 50px rgba(0,0,0,0.8);
     box-shadow: 0 0 50px rgba(0,0,0,0.8);
     overflow: hidden;
+    font-family: 'PT Sans', sans-serif;
+}
+
+#third article {
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+#third a {
+    display: block;
+    width: 40%;
+    height: 130px;
+    border: 2px solid rgb(238, 219, 188);
+    color: rgb(238, 219, 188);
+    text-decoration: none;
+    margin: 20px 20px;
+    padding: 20px;
+    background: rgba(85,85,85,0.5);
+    line-height: 1.3em;
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+#third a:hover {
+    color: #CC5335;
+    background: rgb(238, 219, 188);
+}
+
+#third a:nth-of-type(2n) {
+    float: right;
+}
+
+#third a:nth-of-type(2n+1) {
+    float: left;
+}
+
+#third a h4 {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+#third a p {
+    text-align: justify;
+}
+
+.border {
+    width: 50px;
+    height: 1em;
+    border-bottom: 1px solid rgb(238, 219, 188);
+    margin-bottom: 1em;
+}
+
+
+
+
+
+
+#forty {
+    background: rgb(204, 83, 53);
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1920px;
+    position: relative;
+    -webkit-box-shadow: 0 0 50px rgba(0,0,0,0.8);
+    box-shadow: 0 0 50px rgba(0,0,0,0.8);
+    overflow: hidden;
+    color: rgb(238, 219, 188);
+    font-size: 1.2em;
+    text-align: center;
+    font-family: 'PT Sans', sans-serif;
 }
 
 #forty article {
     max-width: 900px;
-    margin: 50px auto;
+    margin: 40px auto;
 }
 
 #forty article a {
     display: block;
     float: left;
-    margin: 20px 35px 20px 35px;
+    margin: 20px 43px;
 }
 
 #forty article a img {
-    height: 200px;
+    height: 180px;
 }
+
+
+
+
+
+
 
 
 
