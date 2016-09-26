@@ -1,11 +1,11 @@
 @import 'https://fonts.googleapis.com/css?family=Roboto';
 @import 'https://fonts.googleapis.com/css?family=Ubuntu+Condensed';
 @import 'https://fonts.googleapis.com/css?family=PT+Sans';
-body {font-family: 'Roboto', verdana, sans-serif}
+body {font-family: 'PT Sans', verdana, sans-serif}
 
 
 #first {
-    background: url(../img/slider1.jpg) 50% 0 no-repeat fixed;
+    background: url(../img/slider2.jpg) 50% 0 no-repeat fixed;
     background-position: 50% 100px;
     min-height: 750px;
     margin: 0 auto;
@@ -75,6 +75,7 @@ body {font-family: 'Roboto', verdana, sans-serif}
     position: absolute;
     top: 130px;
     left: 10%;
+    text-shadow: #888 0 0 20px;
 }
 
 #first article p {
@@ -83,7 +84,7 @@ body {font-family: 'Roboto', verdana, sans-serif}
     top: 370px;
     left: 15%;
     width: 700px;
-    text-shadow: #101010 0 0 5px;
+    text-shadow: #888 0 0 10px;
 }
 
 
@@ -119,9 +120,11 @@ body {font-family: 'Roboto', verdana, sans-serif}
     display: block;
     -webkit-box-shadow: 0 0 50px rgba(0,0,0,0.8);
     box-shadow: 0 0 10px rgba(0,0,0,0.8);
+    overflow: hidden;
+    position: relative;
 }
 
-#gallery a:nth-of-type(1) {
+#gallery a:nth-of-type(4n+1) {
     float: left;
     width: 500px;
     height: 250px;
@@ -130,7 +133,7 @@ body {font-family: 'Roboto', verdana, sans-serif}
     background-size: cover;
 }
 
-#gallery a:nth-of-type(2) {
+#gallery a:nth-of-type(4n+2) {
     float: right;
     width: 370px;
     height: 250px;
@@ -139,20 +142,20 @@ body {font-family: 'Roboto', verdana, sans-serif}
     background-size: cover;
 }
 
-#gallery a:nth-of-type(3) {
+#gallery a:nth-of-type(4n+3) {
     float: left;
     width: 370px;
-    height: 350px;
+    height: 250px;
     margin-top: 30px;
     background: url("../img/three.jpg") no-repeat;
     background-position: center;
     background-size: cover;
 }
 
-#gallery a:nth-of-type(4) {
+#gallery a:nth-of-type(4n+4) {
     float: right;
     width: 500px;
-    height: 350px;
+    height: 250px;
     margin-top: 30px;
     background: url("../img/one.jpg") no-repeat;
     background-position: center;
@@ -165,6 +168,57 @@ body {font-family: 'Roboto', verdana, sans-serif}
     height: 450px;
     text-align: center;
     overflow: hidden;
+}
+
+#gallery a .hide {
+    background: linear-gradient(180deg, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.2) 50%);
+    height: 200%;
+    width: inherit;
+    overflow: hidden;
+    transition: 0.5s;
+    position: absolute;
+    top: -100%;
+}
+
+#gallery a:hover > .hide {
+    top: 0%;
+}
+
+#gallery .dark {
+    height: 50%;
+    width: inherit;
+    font-size: 1.2em;
+    text-align: justify;
+    color: rgb(238, 219, 188);
+    overflow: hidden;
+}
+
+#gallery a .hide p {
+    display: block;
+    height: 50%;
+    color: rgb(238, 219, 188);
+    text-shadow: #333 0 0 1px;
+    margin: 15px 25px;
+    text-align: justify;
+    font-size: 1.2em;
+}
+
+#gallery a .hide img {
+    height: 50px;
+    margin-top: 45px;
+}
+
+#gallery a .hide h3 {
+    font: bold 1.3em 'Ubuntu Condensed', sans-serif;
+    color: rgb(238, 219, 188);
+    text-shadow: #555 -3px 3px 2px;
+    line-height: 2em;
+}
+
+#gallery a .hide strong {
+    font-size: 1.1em;
+    color: rgb(238, 219, 188);
+    text-shadow: #111 0 0 10px;
 }
 
 #category {
@@ -198,9 +252,15 @@ body {font-family: 'Roboto', verdana, sans-serif}
 
 #category img {
     width: 100px;
+    border-radius: 50%;
+    transition: all 0.5s;
 }
 
-
+#category img:hover {
+    width: 100px;
+    background-color: #CC5335;
+    transform: rotate3d(0,1,0,180deg);
+}
 
 
 
