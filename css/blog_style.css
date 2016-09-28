@@ -26,9 +26,8 @@ body {font-family: 'PT Sans', verdana, sans-serif}
 #first nav {
     background: linear-gradient(#EEDBBC, #fff, #EEDBBC);
     height: 100px;
-    width: 100%;
-    position: fixed;
-    z-index: 99;
+    width: inherit;
+    position: relative;
     -webkit-box-shadow: 0 0 50px rgba(0,0,0,0.8);
     box-shadow: 0 0 10px rgba(0,0,0,0.8);
 }
@@ -94,9 +93,29 @@ body {font-family: 'PT Sans', verdana, sans-serif}
     text-shadow: #888 0 0 10px;
 }
 
+#toTop {
+    display: none;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    border: 5px solid rgb(74,83,90);
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+    z-index: 10;
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    text-decoration: none;
+    color: rgb(74,83,90);
+    line-height: 60px;
+    transition: background-color 0.2s, color 2s;
+}
 
-
-
+#toTop:hover {
+    background-color: rgb(74,83,90);
+    color: rgb(238, 219, 188);
+}
 
 
 
@@ -164,7 +183,7 @@ body {font-family: 'PT Sans', verdana, sans-serif}
     width: 500px;
     height: 250px;
     margin-top: 30px;
-    background: url("../img/one.jpg") no-repeat;
+    background: url("../img/four.jpg") no-repeat;
     background-position: center;
     background-size: cover;
 }
@@ -216,7 +235,7 @@ body {font-family: 'PT Sans', verdana, sans-serif}
 }
 
 #gallery a .hide h3 {
-    font: bold 1.3em 'Ubuntu Condensed', sans-serif;
+    font: bold 1.4em 'Ubuntu Condensed', sans-serif;
     color: rgb(238, 219, 188);
     text-shadow: #555 -3px 3px 2px;
     line-height: 2em;
@@ -275,7 +294,6 @@ body {font-family: 'PT Sans', verdana, sans-serif}
     background-color: #CC5335;
     transform: rotate3d(0,1,0,180deg);
 }
-
 
 
 

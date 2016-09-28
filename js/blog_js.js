@@ -3,6 +3,8 @@ $(document).ready(function(){
     parallax();
     sliderRun(2000,1000,5000);
     scrollEff();
+
+
 });
 
 
@@ -84,7 +86,7 @@ function sliderRun(a, b, c) {
 
 
 function scrollEff() {
-    if ($(document).width() > 1920)
+    if (($(document).width() > 1920) || ($(window).scrollTop() > 1000))
     {
         $('#category > a').animate({left:'0'},800);
         $('.note').animate({top: ''},600);
@@ -101,6 +103,20 @@ function scrollEff() {
         if( $(window).scrollTop() > 1400) $('.note').eq(1).animate({top: ''},600);
         if( $(window).scrollTop() > 1600) $('.note').eq(2).animate({top: ''},600);
 
+        if ( $(window).scrollTop() > 1900) {
+            console.log($(window).scrollTop())
+            $('#toTop').css({'display':'block'})
+        }
+
+        $('#toTop').click(function () {
+            $(this).css({'boxShadow': '0 0 100px red'})
+                .delay(1000)
+                .queue(function () {
+                    $(this).css({
+                        'boxShadow': 'none',
+                        'display':'none'
+                    });$(this).dequeue()})
+        })
     });
 }
 
