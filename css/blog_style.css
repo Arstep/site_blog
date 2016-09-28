@@ -4,12 +4,21 @@
 body {font-family: 'PT Sans', verdana, sans-serif}
 
 
-#first {
-    background: url(../img/slider2.jpg) 50% 0 no-repeat fixed;
-    background-position: 50% 100px;
-    min-height: 750px;
-    margin: 0 auto;
+#sliderBack {
+    height: 650px;
     width: 100%;
+    position: absolute;
+    top: 100px;
+    overflow: hidden;
+}
+
+#sliderBack img {
+    position: absolute;
+}
+
+#first {
+    height: 750px;
+    margin: 0 auto;
     max-width: 1920px;
     position: relative;
 }
@@ -43,13 +52,11 @@ body {font-family: 'PT Sans', verdana, sans-serif}
 
 #first nav li:nth-of-type(1) {
     background: #CC5335;
-    /*background: linear-gradient(#CC5335,#fff,#CC5335);*/
     color: rgb(238, 219, 188);
 }
 
 #first nav li:hover {
     background: #CC5335;
-    /*background: linear-gradient(#CC5335,#fff,#CC5335);*/
     color: rgb(238, 219, 188);
 }
 
@@ -96,8 +103,8 @@ body {font-family: 'PT Sans', verdana, sans-serif}
 
 
 #second {
-    width: 100%;
     max-width: 1920px;
+    margin: 0 auto;
     position: relative;
     -webkit-box-shadow: 0 0 50px rgba(0,0,0,0.8);
     box-shadow: 0 0 50px rgba(0,0,0,0.8);
@@ -233,7 +240,14 @@ body {font-family: 'PT Sans', verdana, sans-serif}
     width: 25%;
     display: block;
     text-decoration: none;
+    position: relative;
 }
+
+#category a:nth-of-type(1){left: -3600px}
+#category a:nth-of-type(2){left: -1000px}
+#category a:nth-of-type(3){left: 1000px}
+#category a:nth-of-type(4){left: 3600px}
+
 
 #category h3 {
     font: bold 1.7em 'Ubuntu Condensed', sans-serif;
@@ -277,32 +291,37 @@ body {font-family: 'PT Sans', verdana, sans-serif}
     background: url(../img/gand.jpg) 50% 0 no-repeat fixed;
     margin: 0 auto;
     width: 100%;
+    min-height: 682px;
     max-width: 1920px;
     position: relative;
     -webkit-box-shadow: 0 0 50px rgba(0,0,0,0.8);
     box-shadow: 0 0 50px rgba(0,0,0,0.8);
     overflow: hidden;
     font-family: 'PT Sans', sans-serif;
+    padding: 20px 0;
 }
 
-#third article {
+#third .note {
     max-width: 900px;
+    height: 174px;
     margin: 40px auto;
+    position: relative;
+    top: 1000px;
 }
 
 #third a {
     display: block;
-    width: 40%;
+    width: 355px;
     height: 130px;
     border: 2px solid rgb(238, 219, 188);
     color: rgb(238, 219, 188);
     text-decoration: none;
-    margin: 20px 20px;
+    margin: 0 20px;
     padding: 20px;
     background: rgba(85,85,85,0.5);
     line-height: 1.3em;
     overflow: hidden;
-    transition: 0.5s;
+    transition: background 0.5s, color 0.5s;
 }
 
 #third a:hover {
