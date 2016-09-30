@@ -103,21 +103,24 @@ function scrollEff() {
         if( $(window).scrollTop() > 1400) $('.note').eq(1).animate({top: ''},600);
         if( $(window).scrollTop() > 1600) $('.note').eq(2).animate({top: ''},600);
 
-        if ( $(window).scrollTop() > 1900) {
-            console.log($(window).scrollTop())
+        if ( $(window).scrollTop() > 1800 && $('#toTop').css('display') == 'none') {
             $('#toTop').css({'display':'block'})
         }
-
-        $('#toTop').click(function () {
-            $(this).css({'boxShadow': '0 0 100px red'})
-                .delay(1000)
-                .queue(function () {
-                    $(this).css({
-                        'boxShadow': 'none',
-                        'display':'none'
-                    });$(this).dequeue()})
-        })
+        if ( $(window).scrollTop() <= 500 && $('#toTop').css('display') == 'block') {
+            $('#toTop').css({'display':'none'})
+        }
     });
+
+    $('#toTop').click(function () {
+        $(this).css({
+            'boxShadow': '0 0 20px black',
+        })
+            .delay(500)
+            .queue(function () {
+                $(this).css({
+                    'boxShadow': 'none'
+                });$(this).dequeue()})
+    })
 }
 
 
