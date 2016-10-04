@@ -14,6 +14,7 @@ body {font-family: 'PT Sans', verdana, sans-serif}
 
 #sliderBack img {
     position: absolute;
+    margin-left: calc(50% - 960px);
 }
 
 #first {
@@ -306,7 +307,7 @@ body {font-family: 'PT Sans', verdana, sans-serif}
 
 
 #third {
-    background: url(../img/gand.jpg) 50% 0 no-repeat fixed;
+    background: #FDD866 url(../img/gand.jpg) 50% 0 no-repeat scroll;
     margin: 0 auto;
     width: 100%;
     min-height: 682px;
@@ -416,5 +417,7 @@ body {font-family: 'PT Sans', verdana, sans-serif}
 
 footer {
     max-width: 1300px;
+    height: 70px;
     margin: 0 auto;
+    overflow: hidden;
 }

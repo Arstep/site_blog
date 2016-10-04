@@ -19,7 +19,7 @@ function parallax() {
 
             var yPos = -( $(window).scrollTop() / $bgobj.data('speed') );
 
-            var coords = '50% '+ (yPos+100) + 'px';
+            var coords = '50% '+ (yPos+50) + 'px';
 
             $bgobj.css({ backgroundPosition: coords });
 
