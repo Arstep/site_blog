@@ -2,7 +2,7 @@
 @import 'https://fonts.googleapis.com/css?family=Ubuntu+Condensed';
 @import 'https://fonts.googleapis.com/css?family=PT+Sans';
 body {font-family: 'PT Sans', verdana, sans-serif}
-
+section, footer {min-width: 915px}
 
 #sliderBack {
     height: 650px;
