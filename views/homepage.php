@@ -1,3 +1,4 @@
+<section id="first">
     <div id="sliderBack" data-counter="0">
         <img src="img/slider3.jpg">
         <img src="img/slider4.jpg">
@@ -20,14 +21,14 @@
 <section id="second">
     <article>
         <div id="gallery">
-            <?php foreach ($this->listArticles as $article => $item) { ?>
-            <a href="<?php echo $_SERVER['PHP_SELF']. "?action=article&id=" .$item['id']?>"
-               style="background-image: url( <?php echo $item['face']?> )">
+            <?php foreach ($this->listArticles as $article => $instance) { ?>
+            <a href="<?php echo $_SERVER['PHP_SELF']. "?action=article&id=" .$instance['id']?>"
+               style="background-image: url( <?php echo $instance['face']?> )">
                 <div class="hide">
-                    <p> <?php echo $item['description']?> </p>
+                    <p> <?php echo $instance['description']?> </p>
                     <img src="ico/wheela.png" alt="">
-                    <h3> <?php echo $item['title']?> </h3>
-                    <strong> <?php echo $item['subtitle']?> </strong>
+                    <h3> <?php echo $instance['title']?> </h3>
+                    <strong> <?php echo $instance['subtitle']?> </strong>
                 </div>
             </a>
             <?php } ?>

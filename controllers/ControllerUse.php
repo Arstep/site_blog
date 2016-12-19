@@ -9,11 +9,6 @@ class Controller_Use
     public $listArticles;   //@param array - массив своих статей в меню на главной странице
     public $links;          //@param array - массив ссылок на внешние статьи в меню на главной странице
 
-    public function __construct()
-    {
-        
-    }
-
     public function getArticle()
     {
 
@@ -22,6 +17,13 @@ class Controller_Use
 
         include_once 'views/templates/header.php';
         include_once 'views/article.php';
+        include_once 'views/templates/footer.php';
+    }
+
+    public function contact()
+    {
+        include_once 'views/templates/header.php';
+        include_once 'views/contact.php';
         include_once 'views/templates/footer.php';
     }
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width initial-scale=1">
@@ -12,18 +12,14 @@
 
     <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
     <script src="js/blog_js.js"></script>
-
-
 </head>
 
 <body>
-
-    <section id="first">
-    
+    <header>
         <nav>
             <ul>
                 <li>
-                    <a href="index.html">О блоге</a>
+                    <a href="index.php">Главная</a>
                 </li>
                 <li>
                     <a href="#">Ссылки</a>
@@ -32,8 +28,11 @@
                     <a href="#">Поиск</a>
                 </li>
                 <li>
-                    <a href="#">Связь</a>
+                    <a href="<?php $_SERVER['PHP_SELF'] ?>?action=contact">Связь</a>
                 </li>
             </ul>
         </nav>
+    </header>
+    
+
 

@@ -1,0 +1,137 @@
+@import 'https://fonts.googleapis.com/css?family=Roboto';
+@import 'https://fonts.googleapis.com/css?family=Ubuntu+Condensed';
+@import 'https://fonts.googleapis.com/css?family=PT+Sans';
+
+body {
+    font-family: 'PT Sans', verdana, sans-serif;
+}
+
+header {
+    height: 100px;
+    margin: 0 auto;
+    max-width: 1920px;
+    /*position: relative;*/
+}
+
+header nav {
+    background: linear-gradient(#EEDBBC, #fff, #EEDBBC);
+    height: 100px;
+    width: inherit;
+    position: relative;
+    -webkit-box-shadow: 0 0 50px rgba(0,0,0,0.8);
+    box-shadow: 0 0 10px rgba(0,0,0,0.8);
+}
+
+header nav > ul {
+    float: right;
+    margin: 0 5% 0 auto;
+    padding: 0;
+    height: inherit;
+}
+
+header nav li  {
+    color: rgb(74,83,90);
+    height: inherit;
+    float: left;
+    text-align: center;
+    list-style: none;
+    padding: 0 2em;
+    transition: all 0.2s linear;
+}
+
+header nav li:nth-of-type(1) {
+    background: #CC5335;
+    color: rgb(238, 219, 188);
+}
+
+header nav li:hover {
+    background: #CC5335;
+    color: rgb(238, 219, 188);
+}
+
+header nav li > a {
+    display: block;
+    font: bold 1.4em  'Roboto', verdana, sans-serif;
+    text-decoration: none;
+    color: inherit;
+    margin: 35px 0 0 0;
+}
+
+
+
+
+section{
+    width: 900px;
+    margin: 20px auto;
+    background: #45709A;
+    color: rgb(238, 219, 188);
+    overflow: hidden;
+}
+
+h1, h2, h5 {
+    margin: 10px;
+}
+
+h1 {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+h2{
+    font-size: 1.8em;
+    text-align: center;
+}
+
+table {
+    font-size: 1.1em;
+    max-width: 860px;
+    color: #555;
+    margin: auto;
+    border-collapse: collapse;
+    background: rgb(238, 219, 188);
+    -webkit-box-shadow: 0 0 20px rgba(0,0,0,0.8);
+    box-shadow: 0 0 20px rgba(0,0,0,0.8);
+}
+
+tr, th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+table, th {
+    border: solid 2px #555;
+}
+
+th {
+    border-left: none;
+    border-right: none;
+    background: rgb(204, 83, 53);
+    color: rgb(238, 219, 188);
+    font-weight: 600;
+    text-align: center;
+}
+
+tr:nth-of-type(2n) {
+    background: #fff4cf;
+}
+
+tr:hover, a:hover {
+    background: #ddd;
+    cursor: pointer;
+}
+
+section a {
+    display: block;
+    background: #fff4cf;
+    height: 30px;
+    width: 170px;
+    text-align: center;
+    font-size: 1em;
+    font-weight: bold;
+    text-decoration: none;
+    color: rgb(74,83,90);
+    line-height: 30px;
+    margin: 20px;
+    -webkit-box-shadow: 0 0 20px rgba(0,0,0,0.8);
+    box-shadow: 0 0 20px rgba(0,0,0,0.8);
+}

@@ -7,7 +7,7 @@ section, footer {min-width: 915px}
 #sliderBack {
     height: 650px;
     width: 100%;
-    position: absolute;
+    position: static;
     top: 100px;
     overflow: hidden;
 }
@@ -17,14 +17,14 @@ section, footer {min-width: 915px}
     margin-left: calc(50% - 960px);
 }
 
-#first {
-    height: 750px;
+header {
+    height: 100px;
     margin: 0 auto;
     max-width: 1920px;
-    position: relative;
+    /*position: relative;*/
 }
 
-#first nav {
+header nav {
     background: linear-gradient(#EEDBBC, #fff, #EEDBBC);
     height: 100px;
     width: inherit;
@@ -33,14 +33,14 @@ section, footer {min-width: 915px}
     box-shadow: 0 0 10px rgba(0,0,0,0.8);
 }
 
-#first nav > ul {
+header nav > ul {
     float: right;
     margin: 0 5% 0 auto;
     padding: 0;
     height: inherit;
 }
 
-#first nav li  {
+header nav li  {
     color: rgb(74,83,90);
     height: inherit;
     float: left;
@@ -50,17 +50,17 @@ section, footer {min-width: 915px}
     transition: all 0.2s linear;
 }
 
-#first nav li:nth-of-type(1) {
+header nav li:nth-of-type(1) {
     background: #CC5335;
     color: rgb(238, 219, 188);
 }
 
-#first nav li:hover {
+header nav li:hover {
     background: #CC5335;
     color: rgb(238, 219, 188);
 }
 
-#first nav li > a {
+header nav li > a {
     display: block;
     font: bold 1.4em  'Roboto', verdana, sans-serif;
     text-decoration: none;
