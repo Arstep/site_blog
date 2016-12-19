@@ -155,9 +155,9 @@ section, footer {min-width: 915px}
     float: left;
     width: 500px;
     height: 250px;
-    background: url("../img/one.jpg") no-repeat;
-    background-position: center;
-    background-size: cover;
+    /*background: url("../img/one.jpg") no-repeat;*/
+    /*background-position: center;*/
+    /*background-size: cover;*/
 }
 
 #gallery a:nth-of-type(4n+2) {
@@ -407,6 +407,26 @@ section, footer {min-width: 915px}
     height: 180px;
 }
 
+
+
+
+
+
+
+#article {
+    background: #FEFBE8;
+    overflow: hidden;
+}
+
+#block {
+    max-width: 900px;
+    margin: 50px auto;
+    position: relative;
+}
+
+#content p {
+    margin: 0.5em 0;
+}
 
 
 
