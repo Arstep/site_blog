@@ -16,6 +16,9 @@ switch ($action){
     case 'newArticle':
         $controller->newArticle();
         break;
+    case 'deleteArticle':
+        $controller->deleteArticle();
+        break;
     default:
         $controller->listArticles(1000);
 }

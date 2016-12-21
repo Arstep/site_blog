@@ -27,12 +27,12 @@ class Controller_Admin
         if (isset($_POST['saveChanges'])) {
 
             // Админ уже заполнил форму редактирования статьи: сохраняем изменения
-
             try {
                 $article = new Model_Article($_POST);
                 $article->update();
                 header("Location: admin.php?status=saved");
             }catch (Exception $e){
+//                $e->getMessage();
                 header("Location: admin.php?status=error");
             }
 
@@ -57,6 +57,12 @@ class Controller_Admin
     {
         $id = Model_Article::insert();
         header('location: ' .$_SERVER['PHP_SELF']. '?action=editArticle&id=' .$id);
+    }
+
+    public function deleteArticle()
+    {
+        Model_Article::delete((int)$_GET['id']);
+        header("Location: admin.php?status=deleted");
     }
 }
 

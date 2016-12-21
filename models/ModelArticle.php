@@ -38,7 +38,10 @@ class Model_Article
     
     public static function delete($id)
     {
-        
+        global $dbPdo;
+
+        $stm = $dbPdo->prepare("DELETE FROM articles WHERE id=:id");
+        $stm->execute(array('id'=>$id));
     }
 
     public static function getArticleById($id)
