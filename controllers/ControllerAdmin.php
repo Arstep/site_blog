@@ -26,12 +26,10 @@ class Controller_Admin
 
         if (isset($_POST['saveChanges'])) {
 
-            if (!$article = Model_Article::getArticleById((int)$_POST['id'])) {
-                header("Location: admin.php?error=articleNotFoundById");
-            }
-
             // Админ уже заполнил форму редактирования статьи: сохраняем изменения
+
             try {
+                $article = new Model_Article($_POST);
                 $article->update();
                 header("Location: admin.php?status=saved");
             }catch (Exception $e){
