@@ -10,10 +10,12 @@
 <!--    <div class="statusMessage">--><?php //echo $results['statusMessage'] ?><!--</div>-->
 <?php //} ?>
 
-<section>
-    <h1>Администрирование сайта</h1>
-    <h5>Вы вошли как </h5>
-    <h2>Все статьи</h2>
+<?php if (isset($_GET['status']) && $_GET['status'] == 'error')
+            echo '<h3 class="error">При сохранении статьи возникли ошибки</h3>';?>
+<?php if (isset($_GET['status']) && $_GET['status'] == 'saved')
+    echo '<h3 class="saved">Изменения сохранены</h3>';?>
+
+<h2>Все статьи</h2>
     <table>
         <tr>
             <th>Дата публикации</th>
@@ -21,15 +23,15 @@
             <th>Сноска</th>
         </tr>
 
-        <?php foreach ($this->listArticles as $article => $instance) { ?>
+        <?php foreach ($this->listArticles as $num => $article) { ?>
 
-            <tr onclick="location='admin.php?action=editArticle&id=<?php echo $instance['id']?>'">
-                <td><?php echo $instance['pubdate']?></td>
+            <tr onclick="location='admin.php?action=editArticle&id=<?php echo $article['id']?>'">
+                <td><?php echo $article['pubdate']?></td>
                 <td>
-                    <?php echo $instance['title']?>
+                    <?php echo $article['title']?>
                 </td>
                 <td>
-                    <?php echo $instance['subtitle']?>
+                    <?php echo $article['subtitle']?>
                 </td>
             </tr>
 

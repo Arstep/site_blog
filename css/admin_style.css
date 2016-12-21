@@ -64,7 +64,7 @@ section{
     width: 900px;
     margin: 20px auto;
     background: #45709A;
-    color: rgb(238, 219, 188);
+    color: #FEFBE8;
     overflow: hidden;
 }
 
@@ -106,7 +106,7 @@ th {
     border-left: none;
     border-right: none;
     background: rgb(204, 83, 53);
-    color: rgb(238, 219, 188);
+    color: #fff4cf;
     font-weight: 600;
     text-align: center;
 }
@@ -122,7 +122,7 @@ tr:hover, a:hover {
 
 section a {
     display: block;
-    background: #fff4cf;
+    background: #FEFBE8;
     height: 30px;
     width: 170px;
     text-align: center;
@@ -134,4 +134,94 @@ section a {
     margin: 20px;
     -webkit-box-shadow: 0 0 20px rgba(0,0,0,0.8);
     box-shadow: 0 0 20px rgba(0,0,0,0.8);
+}
+
+
+
+
+
+form ul li {
+    margin: .9em 0 0 0;
+}
+
+form *:focus {
+    border: 2px solid rgb(204, 83, 53);
+}
+
+input.pole, textarea {
+    display: block;
+    margin: 0;
+    padding: .4em;
+    width: 80%;
+    font-size: .9em;
+    background: palevioletred;
+}
+
+label {
+    display: block;
+    float: left;
+    clear: left;
+    text-align: right;
+    width: 15%;
+    padding: .4em 0 0 0;
+    margin: .15em .5em 0 0;
+}
+
+input.pole, textarea, .date {
+    border: 2px solid rgb(74,83,90);
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+input.pole:valid, textarea:valid {
+    background: #FEFBE8;
+}
+
+.buttons {
+    text-align: center;
+    margin: 40px 0;
+}
+
+input[type="submit"] {
+    display: inline;
+    margin: 0 20px;
+    width: 12em;
+    padding: 10px;
+    border: 2px solid #7c412b;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+    -webkit-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+    box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+    color: #FEFBE8;
+    background: rgb(204, 83, 53);
+    font-weight: bold;
+    -webkit-appearance: none;
+}
+
+input[type="submit"]:hover, input[type="submit"]:active {
+    cursor: pointer;
+    background: #FEFBE8;
+    color: #ef7d50;
+}
+
+input[type="submit"]:active {
+    background: #FEFBE8;
+    -moz-box-shadow: 0 0 .5em rgba(0, 0, 0, .8) inset;
+    -webkit-box-shadow: 0 0 .5em rgba(0, 0, 0, .8) inset;
+    box-shadow: 0 0 .5em rgba(0, 0, 0, .8) inset;
+}
+
+.error{
+    color: red;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.saved{
+    color: chartreuse;
+    text-align: center;
+    font-size: 1.5em;
 }

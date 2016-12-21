@@ -1,4 +1,5 @@
 <?php
+
 class Controller_Admin
 {
     public $model;          // объект конкретной статьи
@@ -16,4 +17,71 @@ class Controller_Admin
         include_once 'admin/templates/header.php';
         include_once 'admin/list_articles.php';
     }
+
+    public function editArticle()
+    {
+        $data = array();
+        $data['formTitle'] = 'Редактирование статьи';
+        $data['formAction'] = 'editArticle';
+
+        if (isset($_POST['saveChanges'])) {
+
+            if (!$article = Model_Article::getArticleById((int)$_POST['id'])) {
+                header("Location: admin.php?error=articleNotFoundById");
+            }
+
+            // Админ уже заполнил форму редактирования статьи: сохраняем изменения
+            try {
+                $article->update();
+                header("Location: admin.php?status=saved");
+            }catch (Exception $e){
+                header("Location: admin.php?status=error");
+            }
+
+
+        } elseif (isset($_POST{'cancel'})) {
+
+            // Админ отказался от результатов редактирования: возвращаемся к списку статей
+            if (empty($_POST['title']) AND empty($_POST['description']) AND empty($_POST['content']))
+            Model_Article::delete($_POST['id']);
+            header("Location:" . $_SERVER['PHP_SELF']);
+
+        } else {
+
+            // Админ еще не получил форму редактирования: выводим форму
+            $article = Model_Article::getArticleById((int)$_GET['id']);
+            include_once 'admin/templates/header.php';
+            include_once 'admin/edit_article.php';
+        }
+    }
+
+    public function newArticle()
+    {
+        $id = Model_Article::insert();
+        header('location: ' .$_SERVER['PHP_SELF']. '?action=editArticle&id=' .$id);
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

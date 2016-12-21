@@ -11,8 +11,8 @@ class Controller_Use
 
     public function getArticle()
     {
-
         $id_article = (int)$_GET['id'];
+
         $this->model = Model_Article::getArticleById($id_article);
 
         include_once 'views/templates/header.php';

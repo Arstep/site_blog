@@ -3,10 +3,10 @@ CREATE TABLE IF NOT EXISTS articles
 (
   id              SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   pubdate         DATE,
-  title           VARCHAR(255) NOT NULL,
+  title           VARCHAR(255,
   subtitle        VARCHAR(255),
   description     TEXT,
-  content         TEXT NOT NULL
+  content         TEXT
 );
 
 #DROP TABLE IF EXISTS img;

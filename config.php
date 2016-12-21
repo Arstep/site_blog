@@ -9,8 +9,20 @@ const LOT_LINKS = 6; // количество ссылок на внешние с
 const DB_DSN = "mysql:host=localhost;dbname=site_blog;charset=utf8";
 const DB_USERNAME = 'blog';
 const DB_PASSWORD = 'blog';
+const IMG_PATH = 'img/';
 
 $dbPdo = new PDO(DB_DSN, DB_USERNAME, DB_PASSWORD);
+
+
+
+//function handleException($e)
+//{
+//    echo "Сорри, возникла проблема. Попробуйте еще раз позже";
+//    error_log($e->getMessage());
+//}
+//
+//set_exception_handler('handleException');
+
 
 function __autoload($className)
 {

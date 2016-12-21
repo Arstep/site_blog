@@ -20,8 +20,15 @@
                 <a href="index.php">Переход на сайт</a>
             </li>
             <li>
+                <a href="admin.php">Список статей</a>
+            </li>
+            <li>
                 <a href="#">Выход</a>
             </li>
         </ul>
     </nav>
 </header>
+
+<section>
+    <h1>Администрирование сайта</h1>
+    <h5>Вы вошли как </h5>
