@@ -1,8 +1,12 @@
 <?php
-
 require( "config.php" );
 session_start();
 
+$adminName = isset($_SESSION['adminName']) ? $_SESSION['adminName'] : false;
+if ( ! $adminName){
+    (new Controller_Admin())->login();
+    exit();
+}
 
 
 $controller = new Controller_Admin();
@@ -18,6 +22,9 @@ switch ($action){
         break;
     case 'deleteArticle':
         $controller->deleteArticle();
+        break;
+    case 'deleteImg':
+        $controller->deleteImg();
         break;
     default:
         $controller->listArticles(1000);

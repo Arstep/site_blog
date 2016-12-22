@@ -1,10 +1,7 @@
-
 $(document).ready(function(){
     parallax();
     sliderRun(2000,1000,5000);
     scrollEff();
-
-
 });
 
 

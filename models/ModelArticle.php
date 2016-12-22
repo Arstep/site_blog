@@ -32,7 +32,7 @@ class Model_Article
     {
         global $dbPdo;
 
-        $dbPdo->query("INSERT INTO `articles`(`id`) VALUES (NULL)");
+        $dbPdo->query("INSERT INTO articles(id) VALUES (NULL)");
         return $dbPdo->lastInsertId();
     }
     
@@ -40,8 +40,22 @@ class Model_Article
     {
         global $dbPdo;
 
-        $stm = $dbPdo->prepare("DELETE FROM articles WHERE id=:id");
+        $stm = $dbPdo->prepare("DELETE FROM articles WHERE id = :id LIMIT 1");
         $stm->execute(array('id'=>$id));
+    }
+
+    public static function deleteImg($id, $tooltip)
+    {
+        global $dbPdo;
+
+        $stm = $dbPdo->prepare("DELETE FROM img WHERE id_article = :id AND tooltip = :tooltip LIMIT 1");
+        $stm->bindParam(':id', $id);
+        $stm->bindParam(':tooltip', $tooltip);
+        if ( ! $stm->execute()){
+            error_log('Ошибка при удалении картинки \n', 3, 'my_errors.log');
+            return 'Ошибка при удалении картинки';
+        } return true;
+
     }
 
     public static function getArticleById($id)
@@ -102,13 +116,19 @@ class Model_Article
         $stm->bindParam(':id', $this->id, PDO::PARAM_STR);
         $stm->execute();
 
+        $this->updateImg();
+    }
+
+    public function updateImg()
+    {
+        global $dbPdo;
+
         foreach ($_FILES as $name => $arr) {
-            if (!$_FILES[$name]['name'])
+            if ( ! $_FILES[$name]['name'])
                 continue;
-            $name = htmlentities($name);
 
             if ($name != 'face' and $name != 'first' and $name != 'second')
-                throw new Exception('Ошибка имени передаваемого поля INPUT');
+                throw new Exception('Ошибка имени передаваемого поля INPUT с типом file');
 
             switch ($arr['type']) {
                 case 'image/gif':
@@ -125,13 +145,20 @@ class Model_Article
                     $type = false;
             }
 
-            if (!$type)
+            if ( ! $type)
                 throw new Exception('Недопустимый тип загружаемого файла. Картинка не добавлена. 
                                     допустимые типы файлов: gif, jpg, png');
 
+            /*
+             * Записываем новую картинку в файл...
+             */
             $link = IMG_PATH . 'id' . $this->id . '_' . $name . $type;
             move_uploaded_file($_FILES[$name]['tmp_name'], $link);
 
+            /*
+             * ..и проверяем, была ли уже у модели картинка для этого имени tooltip - если есть,
+             * то мы ее оставляем, т.к. ее путь остается прежним, если нет - добавляем запись
+             */
             if (!isset($this->imgLink[$name])) {
                 $sql = "INSERT INTO img VALUES (:link, :tooltip, :id_article)";
                 $stm = $dbPdo->prepare($sql);
@@ -141,7 +168,6 @@ class Model_Article
                 $stm->execute();
             }
         }
-
     }
 
 

@@ -1,19 +1,7 @@
-
-
-
-<?php //if ( isset( $results['errorMessage'] ) ) { ?>
-<!--    <div class="errorMessage">--><?php //echo $results['errorMessage'] ?><!--</div>-->
-<?php //} ?>
-<!---->
-<!---->
-<?php //if ( isset( $results['statusMessage'] ) ) { ?>
-<!--    <div class="statusMessage">--><?php //echo $results['statusMessage'] ?><!--</div>-->
-<?php //} ?>
-
-<?php if (isset($_GET['status']) && $_GET['status'] == 'error')
-            echo '<h3 class="error">При сохранении статьи возникли ошибки</h3>';?>
-<?php if (isset($_GET['status']) && $_GET['status'] == 'saved')
-    echo '<h3 class="saved">Изменения сохранены</h3>';?>
+<?php //if (isset($_GET['status']) && $_GET['status'] == 'error')
+//            echo '<h3 class="error">При сохранении статьи возникли ошибки</h3>';?>
+<?php //if (isset($_GET['status']) && $_GET['status'] == 'saved')
+//    echo '<h3 class="saved">Изменения сохранены</h3>';?>
 
 <h2>Все статьи</h2>
     <table>

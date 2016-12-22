@@ -6,11 +6,6 @@ class Controller_Admin
     public $listArticles;   //@param array - массив своих статей в меню на главной странице
     public $links;          //@param array - массив ссылок на внешние статьи в меню на главной странице
 
-    public function __construct()
-    {
-
-    }
-
     public function listArticles($limit)
     {
         $this->listArticles = Model_Article::getListArticles($limit);
@@ -21,8 +16,6 @@ class Controller_Admin
     public function editArticle()
     {
         $data = array();
-        $data['formTitle'] = 'Редактирование статьи';
-        $data['formAction'] = 'editArticle';
 
         if (isset($_POST['saveChanges'])) {
 
@@ -30,12 +23,10 @@ class Controller_Admin
             try {
                 $article = new Model_Article($_POST);
                 $article->update();
-                header("Location: admin.php?status=saved");
+                header("Location: " .$_SERVER['HTTP_REFERER']. "&status=saved");
             }catch (Exception $e){
-//                $e->getMessage();
-                header("Location: admin.php?status=error");
+                header("Location: " .$_SERVER['HTTP_REFERER']. "&status=error");
             }
-
 
         } elseif (isset($_POST{'cancel'})) {
 
@@ -53,6 +44,10 @@ class Controller_Admin
         }
     }
 
+    /**
+     * Добавление статьи путем образования пустой записи в базе и редактирование ее имеющимся методом editArticle().
+     * Если редактирование отменили, для того, чтобы не плодить пустые записи - удаляем болванку из базы.
+     */
     public function newArticle()
     {
         $id = Model_Article::insert();
@@ -64,28 +59,13 @@ class Controller_Admin
         Model_Article::delete((int)$_GET['id']);
         header("Location: admin.php?status=deleted");
     }
+
+    public function deleteImg()
+    {
+        if (isset($_GET['id']) AND $_GET['tooltip'])
+            $result = Model_Article::deleteImg((int)$_GET['id'], $_GET['tooltip']);
+        if ($result === true)
+            header("Location: " .$_SERVER['HTTP_REFERER']);
+        else echo $result;
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
