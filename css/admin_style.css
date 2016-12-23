@@ -83,7 +83,7 @@ h2{
 
 table {
     font-size: 1.1em;
-    max-width: 860px;
+    width: 860px;
     color: #555;
     margin: auto;
     border-collapse: collapse;

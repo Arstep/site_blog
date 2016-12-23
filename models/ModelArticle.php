@@ -15,13 +15,13 @@ class Model_Article
         if (isset($data['id']))
             $this->id = (int)$data['id'];
         if (isset($data['pubdate']))
-            $this->pubdate = $data['pubdate']; //посмотреть в каком виде будет поступать из админки и выбрать формат и очистку
+            $this->pubdate = $data['pubdate'];
         if (isset($data['title']))
-            $this->title = htmlentities($data['title']);
+            $this->title = $data['title'];
         if (isset($data['subtitle']))
-            $this->subtitle = htmlentities($data['subtitle']);
+            $this->subtitle = $data['subtitle'];
         if (isset($data['description']))
-            $this->description = htmlentities($data['description']);
+            $this->description = $data['description'];
         if (isset($data['content']))
             $this->content = $data['content'];
         if (isset($data['imgLinks']))
@@ -163,9 +163,11 @@ class Model_Article
 
             /*
              * ..и проверяем, была ли уже у модели картинка для этого имени tooltip - если есть,
-             * то мы ее оставляем, т.к. ее путь остается прежним, если нет - добавляем запись
+             * то изменяем, если нет - добавляем запись
              */
-            if (!isset($this->imgLink[$name])) {
+            if (isset($this->imgLink[$name])) {
+               $dbPdo->query("UPDATE img SET link=" .$link. " WHERE link=" .$this->imgLink[$name]);
+            }else{
                 $sql = "INSERT INTO img VALUES (:link, :tooltip, :id_article)";
                 $stm = $dbPdo->prepare($sql);
                 $stm->bindParam(':link', $link);

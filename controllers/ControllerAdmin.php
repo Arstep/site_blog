@@ -8,8 +8,8 @@ class Controller_Admin
     public function listArticles($limit)
     {
         $this->listArticles = Model_Article::getListArticles($limit);
-        include_once 'admin/templates/header.php';
-        include_once 'admin/list_articles.php';
+        include_once VIEWS_ADMIN . 'templates/header.php';
+        include_once VIEWS_ADMIN . 'list_articles.php';
     }
 
     public function editArticle()
@@ -38,8 +38,8 @@ class Controller_Admin
 
             // Админ еще не получил форму редактирования: выводим форму
             $article = Model_Article::getArticleById((int)$_GET['id']);
-            include_once 'admin/templates/header.php';
-            include_once 'admin/edit_article.php';
+            include_once VIEWS_ADMIN . 'templates/header.php';
+            include_once VIEWS_ADMIN . 'edit_article.php';
         }
     }
 
@@ -77,10 +77,10 @@ class Controller_Admin
             }
             else{
                 $result['error'] = 'Неверное имя пользователя или пароль';
-                include_once 'admin/loginForm.php';
+                include_once VIEWS_ADMIN . 'loginForm.php';
             }
         } else{
-            include_once 'admin/loginForm.php';
+            include_once VIEWS_ADMIN . 'loginForm.php';
         }
     }
 

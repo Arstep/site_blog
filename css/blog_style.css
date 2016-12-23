@@ -4,11 +4,15 @@
 body {font-family: 'PT Sans', verdana, sans-serif}
 section, footer {min-width: 915px}
 
-#sliderBack {
+#first {
     height: 650px;
+}
+
+#sliderBack {
     width: 100%;
-    position: static;
+    position: absolute;
     top: 100px;
+    height: 650px;
     overflow: hidden;
 }
 
@@ -21,13 +25,15 @@ header {
     height: 100px;
     margin: 0 auto;
     max-width: 1920px;
+    overflow: hidden;
     /*position: relative;*/
 }
 
 header nav {
     background: linear-gradient(#EEDBBC, #fff, #EEDBBC);
     height: 100px;
-    width: inherit;
+    /*width: inherit;*/
+    min-width: 915px;
     position: relative;
     -webkit-box-shadow: 0 0 50px rgba(0,0,0,0.8);
     box-shadow: 0 0 10px rgba(0,0,0,0.8);
@@ -242,6 +248,7 @@ header nav li > a {
     font-size: 1.1em;
     color: rgb(238, 219, 188);
     text-shadow: #111 0 0 10px;
+    text-transform: uppercase;
 }
 
 #category {
@@ -407,26 +414,56 @@ header nav li > a {
 
 
 
+/*-------------------стили статей-------------------------------*/
 
-
-#article {
+#article{
     background: #FEFBE8;
     overflow: hidden;
 }
 
 #block {
-    max-width: 900px;
+    max-width: 915px;
     margin: 50px auto;
     position: relative;
 }
 
 #content p {
     margin: 0.5em 0;
+    text-align: justify;
+    text-indent: 20px;
 }
 
+#article img{
+    max-width: 100%;
+    display: block;
+    margin: 20px auto;
+}
 
+#article h2 {
+    font-size: 1.7em;
+    margin: 20px;
+}
 
+#article h3 {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin: 20px 0 10px 20px;
+}
 
+#block > p {
+    font-size: 1.2em;
+    margin: 1em 0;
+    text-align: justify;
+    text-indent: 20px;
+}
+
+#article ul {
+    list-style: square;
+    margin: 10px;
+    padding: 5px;
+}
+
+/*---------------------------------------------------------------*/
 
 
 

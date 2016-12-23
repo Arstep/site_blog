@@ -5,6 +5,8 @@ const LOT_ARTICLES = 4; // количество своих статей в ме�
 const LOT_LINKS = 6; // количество ссылок на внешние статьи в меню на главной странице
 const DB_DSN = "mysql:host=localhost;dbname=site_blog;charset=utf8";
 const IMG_PATH = 'img/';
+const VIEWS_SITE = 'views_site/';
+const VIEWS_ADMIN = 'views_admin/';
 
 const DB_USERNAME = 'blog';
 const DB_PASSWORD = 'blog';

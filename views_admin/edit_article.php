@@ -35,7 +35,7 @@
         <li>
             <label for="content">Статья</label>
                 <textarea name="content" placeholder="HTML содержание статьи. Теги разрешены." required
-                          maxlength="100000" style="height: 20em"><?php echo $article->content ?></textarea>
+                          maxlength="100000" style="height: 60em"><?php echo $article->content ?></textarea>
         </li>
     </ul>
 
