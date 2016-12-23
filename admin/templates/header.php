@@ -9,9 +9,6 @@
     <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
     <link rel="stylesheet" type="text/css" href="css/admin_style.css">
     <link rel="icon" href="ico/sailboat.ico" type="image/gif">
-
-    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
-    <script src="js/blog_js.js"></script>
 </head>
 
 <body>
@@ -26,7 +23,8 @@
                 <a href="admin.php">Список статей</a>
             </li>
             <li>
-                <a href="#">Выход</a>
+                <a href="<?php echo $_SERVER['PHP_SELF']?>?action=logout"
+                   onclick="return confirm('Выйти из авторизации?')">Выход</a>
             </li>
         </ul>
     </nav>
@@ -34,4 +32,4 @@
 
 <section>
     <h1>Администрирование сайта</h1>
-    <h5>Вы вошли как </h5>
+    <h5>Вы вошли как <b><?php echo $_SESSION['adminName']?></b></h5>

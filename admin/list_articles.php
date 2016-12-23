@@ -1,8 +1,3 @@
-<?php //if (isset($_GET['status']) && $_GET['status'] == 'error')
-//            echo '<h3 class="error">При сохранении статьи возникли ошибки</h3>';?>
-<?php //if (isset($_GET['status']) && $_GET['status'] == 'saved')
-//    echo '<h3 class="saved">Изменения сохранены</h3>';?>
-
 <h2>Все статьи</h2>
     <table>
         <tr>
@@ -26,8 +21,6 @@
         <?php } ?>
 
     </table>
-
-    <h5>Всего статей:  </h5>
 
     <a href="admin.php?action=newArticle">Добавить статью</a>
 </section>

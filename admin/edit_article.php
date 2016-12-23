@@ -37,45 +37,63 @@
                 <textarea name="content" placeholder="HTML содержание статьи. Теги разрешены." required
                           maxlength="100000" style="height: 20em"><?php echo $article->content ?></textarea>
         </li>
-        <li>
-            <label for="face">Главное фото</label>
-            <input type="file" name="face">
-    <?php if (isset($article->imgLink['face'])) { ?>
-            <a class="delImg" href="admin.php?action=deleteImg&id=<?php echo $article->id ?>&tooltip=face"
-        onclick="return confirm('Удалить картинку?')">
-                Удалить картинку
-            </a>
-        <img src="<?php echo $article->imgLink['face'] ?>" alt="" width=40%>
-    <?php } ?>
-        </li>
-        <li>
-            <label for="first">Первое фото</label>
-            <input type="file" name="first">
-    <?php if (isset($article->imgLink['first'])) { ?>
-            <a class="delImg" href="admin.php?action=deleteImg&id=<?php echo $article->id ?>&tooltip=first"
-        onclick="return confirm('Удалить картинку?')">
-                Удалить картинку
-            </a>
-        <img src="<?php echo $article->imgLink['first'] ?>" alt="" width=40%>
-    <?php } ?>
-        </li>
-        <li>
-            <label for="second">Второе фото</label>
-            <input type="file" name="second">
-    <?php if (isset($article->imgLink['second'])) { ?>
-            <a class="delImg" href="admin.php?action=deleteImg&id=<?php echo $article->id ?>&tooltip=second"
-               onclick="return confirm('Удалить картинку?')">
-                Удалить картинку
-            </a>
-        <img src="<?php echo $article->imgLink['second'] ?>" alt="" width=40%>
-
-    <?php } ?>
-        </li>
     </ul>
+
+    <div class="picture">
+        <div>
+            <p>Главное фото</p><br>
+            <input type="file" name="face">
+        </div>
+        <div>
+            <?php if (isset($article->imgLink['face'])) { ?>
+                <a class="delImg" href="admin.php?action=deleteImg&id=<?php echo $article->id ?>&tooltip=face"
+                   onclick="return confirm('Удалить картинку?')">
+                    Удалить картинку
+                </a>
+                <img src="<?php echo $article->imgLink['face'] ?>" alt="">
+            <?php } ?>
+        </div>
+        <div style="clear: both"></div>
+    </div>
+
+    <div class="picture">
+        <div>
+            <p>Первое фото</p><br>
+            <input type="file" name="first">
+        </div>
+        <div>
+            <?php if (isset($article->imgLink['first'])) { ?>
+                <a class="delImg" href="admin.php?action=deleteImg&id=<?php echo $article->id ?>&tooltip=first"
+                   onclick="return confirm('Удалить картинку?')">
+                    Удалить картинку
+                </a>
+                <img src="<?php echo $article->imgLink['first'] ?>" alt="">
+            <?php } ?>
+        </div>
+        <div style="clear: both"></div>
+    </div>
+
+    <div class="picture">
+        <div>
+            <p>Второе фото</p><br>
+            <input type="file" name="second">
+        </div>
+        <div>
+            <?php if (isset($article->imgLink['second'])) { ?>
+                <a class="delImg" href="admin.php?action=deleteImg&id=<?php echo $article->id ?>&tooltip=second"
+                   onclick="return confirm('Удалить картинку?')">
+                    Удалить картинку
+                </a>
+                <img src="<?php echo $article->imgLink['second'] ?>" alt="">
+            <?php } ?>
+        </div>
+        <div style="clear: both"></div>
+    </div>
 
     <div class="buttons">
         <input type="submit" name="saveChanges" value="Сохранить">
-        <input type="submit" formnovalidate name="cancel" value="Отменить" onclick="return confirm('Отменить?')">
+        <input type="submit" formnovalidate name="cancel" value="Отменить"
+               onclick="return confirm('Выйти без сохранения?')">
     </div>
 
 </form>

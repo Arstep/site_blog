@@ -4,7 +4,6 @@ class Controller_Admin
 {
     public $model;          // объект конкретной статьи
     public $listArticles;   //@param array - массив своих статей в меню на главной странице
-    public $links;          //@param array - массив ссылок на внешние статьи в меню на главной странице
 
     public function listArticles($limit)
     {
@@ -15,7 +14,7 @@ class Controller_Admin
 
     public function editArticle()
     {
-        $data = array();
+//        $data = array();
 
         if (isset($_POST['saveChanges'])) {
 
@@ -63,9 +62,32 @@ class Controller_Admin
     public function deleteImg()
     {
         if (isset($_GET['id']) AND $_GET['tooltip'])
-            $result = Model_Article::deleteImg((int)$_GET['id'], $_GET['tooltip']);
-        if ($result === true)
+            $reply = Model_Article::deleteImg((int)$_GET['id'], $_GET['tooltip']);
+        if ($reply === true)
             header("Location: " .$_SERVER['HTTP_REFERER']);
-        else echo $result;
+        else echo $reply;
+    }
+
+    public function login()
+    {
+        if (isset($_POST['name']) AND isset($_POST['password'])){
+            if ($_POST['name'] == ADMIN_NAME AND $_POST['password'] == ADMIN_PASSWORD) {
+                $_SESSION['adminName'] = ADMIN_NAME;
+                header("Location: " . $_SERVER['PHP_SELF']);
+            }
+            else{
+                $result['error'] = 'Неверное имя пользователя или пароль';
+                include_once 'admin/loginForm.php';
+            }
+        } else{
+            include_once 'admin/loginForm.php';
+        }
+    }
+
+    public function logout()
+    {
+        unset($_SESSION['adminName']);
+        session_destroy();
+        header("Location: " .$_SERVER['PHP_SELF']);
     }
 }

@@ -40,6 +40,12 @@ class Model_Article
     {
         global $dbPdo;
 
+        $stm = $dbPdo->prepare("SELECT link FROM img WHERE id_article = :id");
+        $stm->execute(array('id'=>$id));
+        while ($row = $stm->fetch(PDO::FETCH_ASSOC)){
+            unlink($row['link']);
+        }
+
         $stm = $dbPdo->prepare("DELETE FROM articles WHERE id = :id LIMIT 1");
         $stm->execute(array('id'=>$id));
     }
@@ -81,15 +87,15 @@ class Model_Article
     public static function getListArticles($limit = LOT_ARTICLES)
     {
         global $dbPdo;
-        /*Достаем данные по шести последним статьям*/
+        /*Достаем данные по последним статьям*/
         $sql = "SELECT * FROM articles ORDER BY pubdate DESC LIMIT $limit";
-        $result = $dbPdo->query($sql);
+        $reply = $dbPdo->query($sql);
 
-        while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-            /*Достаем титульную картинку соответствующую текущей статье.. */
+        while ($row = $reply->fetch(PDO::FETCH_ASSOC)) {
+            /*Для каждой статьи достаем соответствующую титульную картинку.. */
             $sql = "SELECT tooltip, link FROM img WHERE id_article =" . $row['id'] . " AND tooltip='face'";
-            $result_img = $dbPdo->query($sql);
-            $img = $result_img->fetch(PDO::FETCH_ASSOC);
+            $reply_img = $dbPdo->query($sql);
+            $img = $reply_img->fetch(PDO::FETCH_ASSOC);
             $row[$img['tooltip']] = $img['link'];
             /*.. и добавляем ее в массив данных статьи*/
             $articles[] = $row;

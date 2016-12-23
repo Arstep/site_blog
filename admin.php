@@ -9,6 +9,8 @@ if ( ! $adminName){
 }
 
 
+
+
 $controller = new Controller_Admin();
 
 $action = isset($_GET['action']) ? $_GET['action'] : false;
@@ -26,8 +28,31 @@ switch ($action){
     case 'deleteImg':
         $controller->deleteImg();
         break;
+    case 'logout':
+        $controller->logout();
+        break;
     default:
         $controller->listArticles(1000);
 }
 
 $dbPdo = null;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

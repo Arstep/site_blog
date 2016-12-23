@@ -1,27 +1,18 @@
 <?php
-/*
- *
- * */
 
 
 const LOT_ARTICLES = 4; // количество своих статей в меню на главной странице
 const LOT_LINKS = 6; // количество ссылок на внешние статьи в меню на главной странице
 const DB_DSN = "mysql:host=localhost;dbname=site_blog;charset=utf8";
-const DB_USERNAME = 'blog';
-const DB_PASSWORD = 'blog';
 const IMG_PATH = 'img/';
 
-$dbPdo = new PDO(DB_DSN, DB_USERNAME, DB_PASSWORD);
+const DB_USERNAME = 'blog';
+const DB_PASSWORD = 'blog';
+
+const ADMIN_NAME = 'blog';
+const ADMIN_PASSWORD = 'blog';
 
 
-
-//function handleException($e)
-//{
-//    echo "Сорри, возникла проблема. Попробуйте еще раз позже";
-//    error_log($e->getMessage());
-//}
-//
-//set_exception_handler('handleException');
 
 
 function __autoload($className)
@@ -35,4 +26,16 @@ function __autoload($className)
             require_once 'models/' . $name[0] . $name[1] . '.php';
     }
 }
+
+$dbPdo = new PDO(DB_DSN, DB_USERNAME, DB_PASSWORD);
+
+//function handleException($e)
+//{
+//    echo "Сорри, возникла проблема. Попробуйте еще раз позже";
+//    error_log($e->getMessage());
+//}
+//
+//set_exception_handler('handleException');
+
+
 
