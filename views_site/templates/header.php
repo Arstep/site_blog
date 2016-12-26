@@ -22,7 +22,7 @@
                     <a href="index.php">Главная</a>
                 </li>
                 <li>
-                    <a href="#">Ссылки</a>
+                    <a href="#">Ресурсы</a>
                 </li>
                 <li>
                     <a href="#">Поиск</a>

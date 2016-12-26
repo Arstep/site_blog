@@ -1,6 +1,7 @@
 @import 'https://fonts.googleapis.com/css?family=Roboto';
 @import 'https://fonts.googleapis.com/css?family=Ubuntu+Condensed';
 @import 'https://fonts.googleapis.com/css?family=PT+Sans';
+section, footer {min-width: 915px}
 
 body {
     font-family: 'PT Sans', verdana, sans-serif;
