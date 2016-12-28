@@ -45,6 +45,11 @@ class Model_Article
         while ($row = $stm->fetch(PDO::FETCH_ASSOC)){
             unlink($row['link']);
         }
+        /*
+         * Если таблицы не InnoDB  и не поддерживают каскада удаления, то удаляем картинки отдельным запросом:
+         * */
+        $stm = $dbPdo->prepare("DELETE FROM img WHERE id_article = :id");
+        $stm->execute(array('id'=>$id));
 
         $stm = $dbPdo->prepare("DELETE FROM articles WHERE id = :id LIMIT 1");
         $stm->execute(array('id'=>$id));

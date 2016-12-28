@@ -2,9 +2,6 @@
 
 class Model_Mail
 {
-    const E_ADRESS = 'adress@mail.ru';
-    const E_THEMA = '\n\nИскренне ваш: ';
-
     private $name;
     private $email;
     private $message;
@@ -37,6 +34,11 @@ class Model_Mail
 
     public function send()
     {
-        mail(self::E_ADRESS, self::E_THEMA, $this->email);
+        $message = wordwrap($this->message, 70, "\r\n");
+        $message .= "\r\n\r\n" . $this->name . "\r\n" . $this->email;
+
+        //$headers = "Content-Type:text/plain; charset=\"utf-8\"\n";
+
+        mail(E_ADRESS_ADMIN, E_THEMA_MESSAGE, $message);
     }
 }

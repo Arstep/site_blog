@@ -25,11 +25,9 @@ class Controller_Use
             $mail = new Model_Mail($_POST);
             $result = $mail->validate();
 
-            if ($result == '') {                
-                /*
-                 * $mail->send();
-                 */
+            if ($result == '') {
                 $result = 'Письмо было отправлено';
+                $mail->send();
             }
         }
 
