@@ -19,6 +19,16 @@ class Controller_Use
         include_once VIEWS_SITE . 'templates/footer.php';
     }
 
+    public function resourses()
+    {
+        $cbrSoap = new Model_Cbrsoap(SOAP_WDSL_CBR);
+        $cursesArr = $cbrSoap->getCurses();
+        
+        include_once VIEWS_SITE . 'templates/header.php';
+        include_once VIEWS_SITE . 'resourses.php';
+        include_once VIEWS_SITE . 'templates/footer.php';
+    }
+
     public function contact()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {

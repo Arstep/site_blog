@@ -19,10 +19,10 @@
         <nav>
             <ul>
                 <li>
-                    <a href="index.php">Главная</a>
+                    <a href="<?php echo $_SERVER['PHP_SELF']?>">Главная</a>
                 </li>
                 <li>
-                    <a href="#">Ресурсы</a>
+                    <a href="<?php echo $_SERVER['PHP_SELF']?>?action=resourses">Ресурсы</a>
                 </li>
                 <li>
                     <a href="<?php echo $_SERVER['PHP_SELF']?>?action=search">Поиск</a>

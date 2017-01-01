@@ -10,6 +10,9 @@ switch ($action){
     case 'article':
         $controller->getArticle();
         break;
+    case 'resourses':
+        $controller->resourses();
+        break;
     case 'contact':
         $controller->contact();
         break;
