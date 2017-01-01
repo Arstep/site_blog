@@ -13,6 +13,12 @@ switch ($action){
     case 'contact':
         $controller->contact();
         break;
+    case 'search':
+        $controller->search();
+        break;
+    case 'findajax':
+        $controller->findAjax();
+        break;
     default:
         $controller->homepage();
 }

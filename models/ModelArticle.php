@@ -109,6 +109,18 @@ class Model_Article
         return $articles;
     }
 
+    public static function findAjaxContent($data)
+    {
+        global $dbPdo;
+        $string = '% ' .$data. ' %';
+
+        $sql = "SELECT id, title, content FROM articles WHERE content LIKE :string LIMIT 10";
+        $stm = $dbPdo->prepare($sql);
+        $stm->bindParam(':string', $string);
+        $stm->execute();
+        return $stm->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public function update()
     {
         global $dbPdo;
@@ -182,6 +194,5 @@ class Model_Article
             }
         }
     }
-
 
 }

@@ -2,8 +2,30 @@ $(document).ready(function(){
     parallax();
     sliderRun(2000,1000,5000);
     scrollEff();
-    colorNav();
+    
+    $('#search_button').bind('click', searchText);
 });
+
+function searchText () {
+    var string = $('#search_data').val();
+
+    if (string){
+
+        if (string.length < 3) return;
+
+        data = 'data=' + string;
+
+        $.ajax({
+            type: "POST",
+            url: "index.php?action=findajax",
+            data: data,
+            success: function (result) 
+                    {
+                        $('#showajax').html(result);
+                    }
+        })
+    }
+}
 
 
 
@@ -159,8 +181,5 @@ function validate(form)
 
 
 
-function colorNav() {
-    var href = window.location.search;
-    
-}
+
 

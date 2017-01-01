@@ -465,7 +465,7 @@ header nav li > a {
 
 /*-------------------- Связь ---------------------------------*/
 
-#contact {
+#contact, #search {
     background: #FEFBE8;
     height: calc(100vh - 250px);
     min-height: 670px;
@@ -488,6 +488,31 @@ iframe {
     text-align: center;
     height: 30px;
 }
+
+
+/*-----------------------Поиск-------------------------------------*/
+#search > div {
+    width: 900px;
+    margin: 20px auto;
+}
+
+#search li {
+    list-style-type: decimal;
+}
+
+#search ol > div {
+    max-height: 100px;
+    overflow: hidden;
+}
+
+#search ol > div span {
+    margin: 0 1em;
+}
+
+#search ol > div i {
+    font-weight: bold;
+}
+
 
 
 

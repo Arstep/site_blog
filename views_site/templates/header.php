@@ -25,10 +25,10 @@
                     <a href="#">Ресурсы</a>
                 </li>
                 <li>
-                    <a href="#">Поиск</a>
+                    <a href="<?php echo $_SERVER['PHP_SELF']?>?action=search">Поиск</a>
                 </li>
                 <li>
-                    <a href="<?php $_SERVER['PHP_SELF'] ?>?action=contact">Связь</a>
+                    <a href="<?php echo $_SERVER['PHP_SELF']?>?action=contact">Связь</a>
                 </li>
             </ul>
         </nav>
