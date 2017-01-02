@@ -16,16 +16,20 @@
 <header>
     <nav>
         <ul>
+
             <li>
                 <a href="index.php">Переход на сайт</a>
             </li>
+
             <li>
-                <a href="admin.php">Список статей</a>
+                <a href="<?php echo $_SERVER['PHP_SELF']?>">Список статей</a>
             </li>
+
             <li>
                 <a href="<?php echo $_SERVER['PHP_SELF']?>?action=logout"
                    onclick="return confirm('Выйти из авторизации?')">Выход</a>
             </li>
+
         </ul>
     </nav>
 </header>

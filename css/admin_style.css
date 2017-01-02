@@ -115,7 +115,7 @@ tr:nth-of-type(2n) {
     background: #fff4cf;
 }
 
-tr:hover, a:hover {
+tr:hover, section a:hover {
     background: #ddd;
     cursor: pointer;
 }
