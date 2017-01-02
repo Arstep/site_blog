@@ -13,7 +13,7 @@
         <p>Матчасть, навигация, чартеры</p>
     </article>
 
-    <a href="#" id="toTop">&#11575</a>
+    <a href="#" id="toTop">&Lambda;</a>
 </section>
 
 
