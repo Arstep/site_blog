@@ -10,6 +10,8 @@ class Controller_Use
 
     public function getArticle()
     {
+        $navMark = 'homepage';
+        
         $id_article = (int)$_GET['id'];
 
         $this->model = Model_Article::getArticleById($id_article);
@@ -21,6 +23,8 @@ class Controller_Use
 
     public function resourses()
     {
+        $navMark = 'resourses';
+
         $cbrSoap = new Model_Cbrsoap(SOAP_WDSL_CBR);
         $cursesArr = $cbrSoap->getCurses();
         
@@ -31,6 +35,8 @@ class Controller_Use
 
     public function contact()
     {
+        $navMark = 'contact';
+
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $mail = new Model_Mail($_POST);
             $result = $mail->validate();
@@ -48,6 +54,8 @@ class Controller_Use
 
     public function search()
     {
+        $navMark = 'search';
+
         include_once VIEWS_SITE . 'templates/header.php';
         include_once VIEWS_SITE . 'search.php';
         include_once VIEWS_SITE . 'templates/footer.php';
@@ -102,6 +110,8 @@ class Controller_Use
 
     public function homepage()
     {
+        $navMark = 'homepage';
+
         $this->listArticles = Model_Article::getListArticles();
         
         include_once VIEWS_SITE . 'templates/header.php';

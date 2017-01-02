@@ -18,18 +18,23 @@
     <header>
         <nav>
             <ul>
-                <li>
-                    <a href="<?php echo $_SERVER['PHP_SELF']?>">Главная</a>
+
+                <li <?php if ($navMark == 'homepage') echo " id=\"navMark\""?>>
+                    <a  <?php   echo "href=\"" .$_SERVER['PHP_SELF']. "\""?>>Главная</a>
                 </li>
-                <li>
-                    <a href="<?php echo $_SERVER['PHP_SELF']?>?action=resourses">Ресурсы</a>
+
+                <li <?php if ($navMark == 'resourses') echo " id=\"navMark\""?>>
+                    <a  <?php   echo "href=\"" .$_SERVER['PHP_SELF']. "?action=resourses\""?>>Ресурсы</a>
                 </li>
-                <li>
-                    <a href="<?php echo $_SERVER['PHP_SELF']?>?action=search">Поиск</a>
+
+                <li <?php if ($navMark == 'search') echo " id=\"navMark\""?>>
+                    <a  <?php   echo "href=\"" .$_SERVER['PHP_SELF']. "?action=search\""?>>Поиск</a>
                 </li>
-                <li>
-                    <a href="<?php echo $_SERVER['PHP_SELF']?>?action=contact">Связь</a>
+
+                <li <?php if ($navMark == 'contact') echo " id=\"navMark\""?>>
+                    <a  <?php   echo "href=\"" .$_SERVER['PHP_SELF']. "?action=contact\""?>>Связь</a>
                 </li>
+
             </ul>
         </nav>
     </header>
