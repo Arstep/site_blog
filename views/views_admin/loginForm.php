@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Вход для администратора</title>
-    <link rel="stylesheet" type="text/css" href="css/admin_style.css">
+    <link rel="stylesheet" type="text/css" href="/views/css/admin_style.css">
     <style>
         table.signup {
             margin: 100px auto;
@@ -37,7 +37,7 @@
         <nav>
             <ul>
                 <li>
-                    <a href="index.php">Переход на сайт</a>
+                    <a href="/">Переход на сайт</a>
                 </li>
             </ul>
         </nav>
@@ -46,7 +46,7 @@
 <section>
     <table class="signup">
         <th colspan="2">Вход для администратора</th>
-        <form method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>" onsubmit="return validate(this)">
+        <form method="post" action="<?php echo $_SERVER['REQUEST_URI'] ?>" onsubmit="return validate(this)">
 
             <?php if (isset($result['error'])){?>
             <tr>

@@ -1,0 +1,24 @@
+Options All -Indexes
+AddDefaultCharset UTF-8
+                                #DirectoryIndex index.php
+
+RewriteEngine on
+    # если запрошен несуществующий файл
+    #RewriteCond %{REQUEST_FILENAME} !-f
+    # если запрошена несуществующая директория
+    #RewriteCond %{REQUEST_FILENAME} !-d
+    # перенаправить на index.php, все что в регулярке добавить в GET
+    # L - дальше этой строчки не не применять преобразований
+    #RewriteRule ^(.*)$ index.php?route=$1 [L,QSA]
+
+#    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule !\.(js|gif|jpg|png|css|ico)$ index.php [QSA,L]
+
+                                # Перенаправление на мобильную версию сайта
+                                #RewriteCond %{HTTP_USER_AGENT} (?i:midp|samsung|nokia|j2me|avant|docomo|novarra|palmos|palmsource|opwv|chtml|pda|mmp|blackberry|mib|symbian|wireless|nokia|hand|mobi|phone|cdm|upb|audio|SIE|SEC|samsung|HTC|mot-|mitsu|sagem|sony|alcatel|lg|eric|vx|NEC|philips|mmm|xx|panasonic|sharp|wap|sch|rover|pocket|benq|java|pt|pg|vox|amoi|bird|compal|kg|voda|sany|kdd|dbt|sendo|sgh|gradi|jb|dddi|moto|iphone|android) [NC]
+                                #RewriteCond %{HTTP_HOST} site.ru
+                                #RewriteRule ^$ http://m.site.com/ [R=302,L]  #302 - временный редирект
+
+
+                                # php_flag display_errors On
+                                #ErrorDocument 404 /errors404.html

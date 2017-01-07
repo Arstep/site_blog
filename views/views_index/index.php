@@ -1,9 +1,9 @@
 <section id="first">
     <div id="sliderBack" data-counter="0">
-        <img src="img/slider3.jpg">
-        <img src="img/slider4.jpg">
-        <img src="img/slider2.jpg">
-        <img src="img/slider1.jpg">
+        <img src="/views/img/slider3.jpg">
+        <img src="/views/img/slider4.jpg">
+        <img src="/views/img/slider2.jpg">
+        <img src="/views/img/slider1.jpg">
     </div>
 
     <article>
@@ -22,11 +22,11 @@
     <article>
         <div id="gallery">
             <?php foreach ($this->listArticles as $article => $instance) { ?>
-            <a href="<?php echo $_SERVER['PHP_SELF']. "?action=article&id=" .$instance['id']?>"
+            <a href="<?php echo 'index/article/id/' .$instance['id']?>"
                style="background-image: url( <?php echo $instance['face']?> )">
                 <div class="hide">
                     <p> <?php echo $instance['description']?> </p>
-                    <img src="ico/wheela.png" alt="">
+                    <img src="/views/ico/wheela.png" alt="">
                     <h3> <?php echo $instance['title']?> </h3>
                     <strong> <?php echo $instance['subtitle']?> </strong>
                 </div>
@@ -37,10 +37,10 @@
     </article>
     <article>
         <div id="category">
-            <a href="#"><img src="ico/book.png" alt="p"><h3>Обучение</h3><p>Система яхтенной квалификации International Yacht Training</p></a>
-            <a href="#"><img src="ico/anchor.png" alt="p"><h3>Чартер яхт</h3><p>Аренда яхт в Турции, Греции, Таиланде, Канарах, Хорватии, Сейшелах</p></a>
-            <a href="#"><img src="ico/map.png" alt="p"><h3>Маршруты</h3><p>Регионы плавания и условия пребывания в маринах</p></a>
-            <a href="#"><img src="ico/sailboat.png" alt="p"><h3>Матчасть</h3><p>Устройство парусной яхты. Управление яхтой</p></a>
+            <a href="#"><img src="views/ico/book.png" alt="p"><h3>Обучение</h3><p>Система яхтенной квалификации International Yacht Training</p></a>
+            <a href="#"><img src="/views/ico/anchor.png" alt="p"><h3>Чартер яхт</h3><p>Аренда яхт в Турции, Греции, Таиланде, Канарах, Хорватии, Сейшелах</p></a>
+            <a href="#"><img src="/views/ico/map.png" alt="p"><h3>Маршруты</h3><p>Регионы плавания и условия пребывания в маринах</p></a>
+            <a href="#"><img src="/views/ico/sailboat.png" alt="p"><h3>Матчасть</h3><p>Устройство парусной яхты. Управление яхтой</p></a>
             <div style="clear: both"></div>
         </div>
     </article>
@@ -98,15 +98,15 @@
 
 <section id="forty">
     <article>
-        <h6>Периодические издания по интересующей теме. Наши и зарубежные</h6>
-        <a href="http://www.yachtrussia.com//"><img src="img/press_Yacht_87_7.jpg" alt="p"></a>
-        <a href="http://www.yachting.su/"><img src="img/press_yahtingSu.jpg" alt="p"></a>
-        <a href="http://katera.ru/"><img src="img/press_KaY.jpg" alt="p"></a>
-        <a href="http://www.classicboat.co.uk/"><img src="img/press_classic-boat.jpg" alt="p"></a>
-        <a href="http://www.mby.ru/"><img src="img/press_motorBoat.jpg" alt="p"></a>
-        <a href="http://www.sailmagazine.com/"><img src="img/press_sail.jpg" alt="p"></a>
-        <a href="http://www.boatinternational.ru/"><img src="img/press_Boat.JPG" alt="p"></a>
-        <a href="http://www.pbo.co.uk/"><img src="img/press_PBO.jpg" alt="p"></a>
+        <h6>Периодические издания по интересующей теме</h6>
+        <a href="http://www.yachtrussia.com//"><img src="/views/img/press_Yacht_87_7.jpg" alt="p"></a>
+        <a href="http://www.yachting.su/"><img src="/views/img/press_yahtingSu.jpg" alt="p"></a>
+        <a href="http://katera.ru/"><img src="/views/img/press_KaY.jpg" alt="p"></a>
+        <a href="http://www.classicboat.co.uk/"><img src="/views/img/press_classic-boat.jpg" alt="p"></a>
+        <a href="http://www.mby.ru/"><img src="/views/img/press_motorBoat.jpg" alt="p"></a>
+        <a href="http://www.sailmagazine.com/"><img src="/views/img/press_sail.jpg" alt="p"></a>
+        <a href="http://www.boatinternational.ru/"><img src="/views/img/press_Boat.jpg" alt="p"></a>
+        <a href="http://www.pbo.co.uk/"><img src="/views/img/press_PBO.jpg" alt="p"></a>
         <div style="clear: both"></div>
     </article>
 </section>

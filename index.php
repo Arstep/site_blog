@@ -1,27 +1,13 @@
 <?php
-require_once 'config.php';
+include_once ('config.php');
 
+$dbPdo = new PDO(DB_DSN, DB_USERNAME, DB_PASSWORD);
 
-$controller = new Controller_Use();
+// Подключаем autoload
+include_once (SITE_PATH .DS. 'classes' .DS. 'autoload.php');
 
-$action = isset($_GET['action']) ? $_GET['action'] : false;
+// Разбираем строку запроса
+$router = Router::getInstance();
 
-switch ($action){
-    case 'article':
-        $controller->getArticle();
-        break;
-    case 'resourses':
-        $controller->resourses();
-        break;
-    case 'contact':
-        $controller->contact();
-        break;
-    case 'search':
-        $controller->search();
-        break;
-    case 'findajax':
-        $controller->findAjax();
-        break;
-    default:
-        $controller->homepage();
-}
+// Выполняем контроллер и метод
+$router->start();

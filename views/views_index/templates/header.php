@@ -7,11 +7,11 @@
 
     <title>Парусный яхтинг</title>
     <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
-    <link rel="stylesheet" type="text/css" href="css/blog_style.css">
-    <link rel="icon" href="ico/sailboat.ico" type="image/gif">
+    <link rel="stylesheet" type="text/css" href="/views/css/blog_style.css">
+    <link rel="icon" href="/views/ico/sailboat.ico" type="image/gif">
 
     <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
-    <script src="js/blog_js.js"></script>
+    <script src="/views/js/blog_js.js"></script>
 </head>
 
 <body>
@@ -20,19 +20,19 @@
             <ul>
 
                 <li <?php if ($navMark == 'homepage') echo " id=\"navMark\""?>>
-                    <a  <?php   echo "href=\"" .$_SERVER['PHP_SELF']. "\""?>>Главная</a>
+                    <a  href="/">Главная</a>
                 </li>
 
                 <li <?php if ($navMark == 'resourses') echo " id=\"navMark\""?>>
-                    <a  <?php   echo "href=\"" .$_SERVER['PHP_SELF']. "?action=resourses\""?>>Ресурсы</a>
+                    <a  href="/index/resourses">Ресурсы</a>
                 </li>
 
                 <li <?php if ($navMark == 'search') echo " id=\"navMark\""?>>
-                    <a  <?php   echo "href=\"" .$_SERVER['PHP_SELF']. "?action=search\""?>>Поиск</a>
+                    <a  href="/index/search">Поиск</a>
                 </li>
 
                 <li <?php if ($navMark == 'contact') echo " id=\"navMark\""?>>
-                    <a  <?php   echo "href=\"" .$_SERVER['PHP_SELF']. "?action=contact\""?>>Связь</a>
+                    <a  href="/index/contact">Связь</a>
                 </li>
 
             </ul>

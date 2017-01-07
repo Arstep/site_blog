@@ -6,6 +6,8 @@ $(document).ready(function(){
     $('#search_button').bind('click', searchText);
 });
 
+
+
 function searchText () {
     var string = $('#search_data').val();
 
@@ -17,7 +19,7 @@ function searchText () {
 
         $.ajax({
             type: "POST",
-            url: "index.php?action=findajax",
+            url: "/index/findajax",
             data: data,
             success: function (result) 
                     {

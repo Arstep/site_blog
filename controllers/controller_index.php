@@ -1,24 +1,24 @@
 <?php
 
 
-class Controller_Use
+class Controller_Index
 {
     public $model;          // объект конкретной статьи
     public $listArticles;   //@param array - массив своих статей в меню на главной странице
 
-    //public $links;          //@param array - массив ссылок на внешние статьи в меню на главной странице
-
-    public function getArticle()
+    public function article()
     {
+        // Метка для меню навигации в header.php
         $navMark = 'homepage';
-        
-        $id_article = (int)$_GET['id'];
+
+        $router = Router::getInstance();
+        $id_article = (int)$router->getParams()['id'];
 
         $this->model = Model_Article::getArticleById($id_article);
 
-        include_once VIEWS_SITE . 'templates/header.php';
-        include_once VIEWS_SITE . 'article.php';
-        include_once VIEWS_SITE . 'templates/footer.php';
+        include_once VIEWS_INDEX . 'templates' .DS. 'header.php';
+        include_once VIEWS_INDEX . 'article.php';
+        include_once VIEWS_INDEX . 'templates' .DS. 'footer.php';
     }
 
     public function resourses()
@@ -27,10 +27,10 @@ class Controller_Use
 
         $cbrSoap = new Model_Cbrsoap(SOAP_WDSL_CBR);
         $cursesArr = $cbrSoap->getCurses();
-        
-        include_once VIEWS_SITE . 'templates/header.php';
-        include_once VIEWS_SITE . 'resourses.php';
-        include_once VIEWS_SITE . 'templates/footer.php';
+
+        include_once VIEWS_INDEX . 'templates' .DS. 'header.php';
+        include_once VIEWS_INDEX . 'resourses.php';
+        include_once VIEWS_INDEX . 'templates' .DS. 'footer.php';
     }
 
     public function contact()
@@ -47,20 +47,22 @@ class Controller_Use
             }
         }
 
-        include_once VIEWS_SITE . 'templates/header.php';
-        include_once VIEWS_SITE . 'contact.php';
-        include_once VIEWS_SITE . 'templates/footer.php';
+        include_once VIEWS_INDEX . 'templates' .DS. 'header.php';
+        include_once VIEWS_INDEX . 'contact.php';
+        include_once VIEWS_INDEX . 'templates' .DS. 'footer.php';
     }
 
+    // Страница поиска
     public function search()
     {
         $navMark = 'search';
 
-        include_once VIEWS_SITE . 'templates/header.php';
-        include_once VIEWS_SITE . 'search.php';
-        include_once VIEWS_SITE . 'templates/footer.php';
+        include_once VIEWS_INDEX . 'templates' .DS. 'header.php';
+        include_once VIEWS_INDEX . 'search.php';
+        include_once VIEWS_INDEX . 'templates' .DS. 'footer.php';
     }
 
+    // Поиск по словам в статьях всего сайта
     public function findAjax()
     {
         // Санируем данные из ajax-а, т.к. будем вставлять этот фрагмент в ответ клиенту
@@ -96,7 +98,8 @@ class Controller_Use
                         $pos = 0;
                     else $pos -= 100;
                     $string = mb_substr($content, $pos, mb_strlen($target) + 200);
-                    $string = str_replace($target, "<i>$mask</i>", $string);
+                    // Добаляем пробелы перед заменяемым словом, чтобы искать только целые слова, а не части других слов
+                    $string = str_replace(' ' .$target. ' ', "<i> $mask </i>", $string);
                 // Собираем массив фрагментов, содержащих совпадения в пределах статьи
                     $strings[] = $string;
                 }
@@ -104,18 +107,18 @@ class Controller_Use
                 $all_strings[] = $strings;
             }
 
-            include_once VIEWS_SITE . 'showajax.php';
+            include_once VIEWS_INDEX . 'showajax.php';
         }
     }
 
-    public function homepage()
+    public function index()
     {
         $navMark = 'homepage';
 
         $this->listArticles = Model_Article::getListArticles();
         
-        include_once VIEWS_SITE . 'templates/header.php';
-        include_once VIEWS_SITE . 'homepage.php';
-        include_once VIEWS_SITE . 'templates/footer.php';
+        include_once VIEWS_INDEX . 'templates' .DS. 'header.php';
+        include_once VIEWS_INDEX . 'index.php';
+        include_once VIEWS_INDEX . 'templates' .DS. 'footer.php';
     }
 }

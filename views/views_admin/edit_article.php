@@ -1,12 +1,7 @@
-<?php if (isset($_GET['status']) && $_GET['status'] == 'error')
-    echo '<h3 class="error">При сохранении статьи возникли ошибки</h3>'; ?>
-<?php if (isset($_GET['status']) && $_GET['status'] == 'saved')
-    echo '<h3 class="saved">Изменения сохранены</h3>'; ?>
-
 
 <h2>Редактирование статьи</h2>
 
-<form action="admin.php?action=editArticle" method="post" enctype='multipart/form-data'>
+<form action="/admin/editArticle" method="post" enctype='multipart/form-data'>
 
     <input type="hidden" name="id" value="<?php echo $article->id ?>"/>
 
@@ -46,11 +41,11 @@
         </div>
         <div>
             <?php if (isset($article->imgLink['face'])) { ?>
-                <a class="delImg" href="admin.php?action=deleteImg&id=<?php echo $article->id ?>&tooltip=face"
+                <a class="delImg" href="/admin/deleteImg/id/<?php echo $article->id ?>/tooltip/face"
                    onclick="return confirm('Удалить картинку?')">
                     Удалить картинку
                 </a>
-                <img src="<?php echo $article->imgLink['face'] ?>" alt="">
+                <img src="/<?php echo $article->imgLink['face'] ?>" alt="">
             <?php } ?>
         </div>
         <div style="clear: both"></div>
@@ -63,11 +58,11 @@
         </div>
         <div>
             <?php if (isset($article->imgLink['first'])) { ?>
-                <a class="delImg" href="admin.php?action=deleteImg&id=<?php echo $article->id ?>&tooltip=first"
+                <a class="delImg" href="/admin/deleteImg/id/<?php echo $article->id ?>/tooltip/first"
                    onclick="return confirm('Удалить картинку?')">
                     Удалить картинку
                 </a>
-                <img src="<?php echo $article->imgLink['first'] ?>" alt="">
+                <img src="/<?php echo $article->imgLink['first'] ?>" alt="">
             <?php } ?>
         </div>
         <div style="clear: both"></div>
@@ -80,11 +75,11 @@
         </div>
         <div>
             <?php if (isset($article->imgLink['second'])) { ?>
-                <a class="delImg" href="admin.php?action=deleteImg&id=<?php echo $article->id ?>&tooltip=second"
+                <a class="delImg" href="/admin/deleteImg/id/<?php echo $article->id ?>/tooltip/second"
                    onclick="return confirm('Удалить картинку?')">
                     Удалить картинку
                 </a>
-                <img src="<?php echo $article->imgLink['second'] ?>" alt="">
+                <img src="/<?php echo $article->imgLink['second'] ?>" alt="">
             <?php } ?>
         </div>
         <div style="clear: both"></div>
@@ -99,7 +94,7 @@
 </form>
 
 <?php if ( ! empty($article->title)) {?>
-    <a href="admin.php?action=deleteArticle&id=<?php echo $article->id ?>" onclick="return confirm('Удалить эту статью?')">
+    <a href="/admin/deleteArticle/id/<?php echo $article->id ?>" onclick="return confirm('Удалить эту статью?')">
         Удалить эту статью
     </a>
 <?php } ?>

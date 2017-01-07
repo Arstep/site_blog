@@ -1,3 +1,11 @@
+<?php if (isset($status) && $status == 'error')
+    echo '<h3 class="error">При сохранении статьи возникли ошибки</h3>'; ?>
+<?php if (isset($status) && $status == 'saved')
+    echo '<h3 class="saved">Изменения сохранены</h3>'; ?>
+<?php if (isset($status) && $status == 'deleted')
+    echo '<h3 class="saved">Статья была удалена</h3>'; ?>
+
+
 <h2>Все статьи</h2>
     <table>
         <tr>
@@ -8,7 +16,7 @@
 
         <?php foreach ($this->listArticles as $num => $article) { ?>
 
-            <tr onclick="location='admin.php?action=editArticle&id=<?php echo $article['id']?>'">
+            <tr onclick="location='/admin/editArticle/id/<?php echo $article['id']?>'">
                 <td><?php echo $article['pubdate']?></td>
                 <td>
                     <?php echo $article['title']?>
@@ -22,5 +30,5 @@
 
     </table>
 
-    <a href="admin.php?action=newArticle">Добавить статью</a>
+    <a href="/admin/newArticle">Добавить статью</a>
 </section>

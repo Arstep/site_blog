@@ -7,8 +7,8 @@
 
     <title>Администрирование сайта</title>
     <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
-    <link rel="stylesheet" type="text/css" href="css/admin_style.css">
-    <link rel="icon" href="ico/sailboat.ico" type="image/gif">
+    <link rel="stylesheet" type="text/css" href="/views/css/admin_style.css">
+    <link rel="icon" href="/views/ico/sailboat.ico" type="image/gif">
 </head>
 
 <body>
@@ -18,15 +18,15 @@
         <ul>
 
             <li>
-                <a href="index.php">Переход на сайт</a>
+                <a href="/">Переход на сайт</a>
             </li>
 
             <li>
-                <a href="<?php echo $_SERVER['PHP_SELF']?>">Список статей</a>
+                <a href="/admin/listArticles">Список статей</a>
             </li>
 
             <li>
-                <a href="<?php echo $_SERVER['PHP_SELF']?>?action=logout"
+                <a href="/admin/logout"
                    onclick="return confirm('Выйти из авторизации?')">Выход</a>
             </li>
 

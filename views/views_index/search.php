@@ -3,6 +3,7 @@
     <div>
         <label for="search_data"> Введите строку для поиска по сайту</label>
         <input id="search_data" type="text" size="60" placeholder="введите не менее 3 символов">
+<!--        При нажатии отправляется AJAX запрос-->
         <input id="search_button" type="button" value="Поиск">
     </div>
     

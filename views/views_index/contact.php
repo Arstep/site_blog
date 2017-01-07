@@ -31,7 +31,7 @@
 
 <div id="toadmin">
     <p>&copy;2016. All rights reserved.
-        <a href="admin.php?action=list" onclick="return confirm('Вы уверены что вы администратор?')">
+        <a href="/admin/listArticles" onclick="return confirm('Вы уверены что вы администратор?')">
             Тестовый вход для администратора</a>
     </p>
 </div>

@@ -39,11 +39,15 @@ class Model_Article
     public static function delete($id)
     {
         global $dbPdo;
-
+        /*
+         * Удаляем все картинки, соответствующие статье с диска
+         * */
         $stm = $dbPdo->prepare("SELECT link FROM img WHERE id_article = :id");
         $stm->execute(array('id'=>$id));
         while ($row = $stm->fetch(PDO::FETCH_ASSOC)){
-            unlink($row['link']);
+            $file = $row['link'];
+            if ( ! unlink($file))
+                throw new Exception('Не удалось удалить с диска картинку: ' . $file);
         }
         /*
          * Если таблицы не InnoDB  и не поддерживают каскада удаления, то удаляем картинки отдельным запросом:
@@ -55,18 +59,28 @@ class Model_Article
         $stm->execute(array('id'=>$id));
     }
 
+    /*
+     * Удаление отдельной картинки - сначала с диска, потом запись из базы
+     * */
     public static function deleteImg($id, $tooltip)
     {
         global $dbPdo;
 
+        $stm = $dbPdo->prepare("SELECT link FROM img WHERE id_article = :id AND tooltip = :tooltip LIMIT 1");
+        $stm->bindParam(':id', $id);
+        $stm->bindParam(':tooltip', $tooltip);
+        $stm->execute();
+        $file = $stm->fetch(PDO::FETCH_ASSOC)['link'];
+        if ( ! unlink($file)) {
+            throw new Exception('Не удалось удалить с диска картинку: ' . $file);
+        }
+
         $stm = $dbPdo->prepare("DELETE FROM img WHERE id_article = :id AND tooltip = :tooltip LIMIT 1");
         $stm->bindParam(':id', $id);
         $stm->bindParam(':tooltip', $tooltip);
-        if ( ! $stm->execute()){
-            error_log('Ошибка при удалении картинки \n', 3, 'my_errors.log');
-            return 'Ошибка при удалении картинки';
-        } return true;
-
+        if ( ! $stm->execute()) {
+            throw new Exception('Ошибка при удалении из базы картинки: ' . $file);
+        }
     }
 
     public static function getArticleById($id)
@@ -94,13 +108,13 @@ class Model_Article
         global $dbPdo;
         /*Достаем данные по последним статьям*/
         $sql = "SELECT * FROM articles ORDER BY pubdate DESC LIMIT $limit";
-        $reply = $dbPdo->query($sql);
+        $result = $dbPdo->query($sql);
 
-        while ($row = $reply->fetch(PDO::FETCH_ASSOC)) {
+        while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
             /*Для каждой статьи достаем соответствующую титульную картинку.. */
             $sql = "SELECT tooltip, link FROM img WHERE id_article =" . $row['id'] . " AND tooltip='face'";
-            $reply_img = $dbPdo->query($sql);
-            $img = $reply_img->fetch(PDO::FETCH_ASSOC);
+            $result_img = $dbPdo->query($sql);
+            $img = $result_img->fetch(PDO::FETCH_ASSOC);
             $row[$img['tooltip']] = $img['link'];
             /*.. и добавляем ее в массив данных статьи*/
             $articles[] = $row;
@@ -170,17 +184,18 @@ class Model_Article
 
             if ( ! $type)
                 throw new Exception('Недопустимый тип загружаемого файла. Картинка не добавлена. 
-                                    допустимые типы файлов: gif, jpg, png');
+                                    Допустимые типы файлов: gif, jpg, png');
 
             /*
              * Записываем новую картинку в файл...
              */
-            $link = IMG_PATH . 'id' . $this->id . '_' . $name . $type;
-            move_uploaded_file($_FILES[$name]['tmp_name'], $link);
+            $link = DATA_IMG_PATH . 'id' . $this->id . '_' . $name . $type;
+    var_dump($link);
+            var_dump(move_uploaded_file($_FILES[$name]['tmp_name'], $link));
 
             /*
              * ..и проверяем, была ли уже у модели картинка для этого имени tooltip - если есть,
-             * то изменяем, если нет - добавляем запись
+             * то изменяем (имя одинаковое, но расширение м.б. другим), если нет - добавляем запись
              */
             if (isset($this->imgLink[$name])) {
                $dbPdo->query("UPDATE img SET link=" .$link. " WHERE link=" .$this->imgLink[$name]);

@@ -6,7 +6,7 @@
     echo '<ol>';
     for ($num_article = 0; $num_article < $count; $num_article++){
         
-        echo "<li><a href=" .$_SERVER['PHP_SELF']. "?action=article&id=" .$result[$num_article]['id']. ">"
+        echo "<li><a href=/index/article/id/" .$result[$num_article]['id']. ">"
                 .$result[$num_article]['title']. "</a></li><div>";
         
         foreach ($all_strings[$num_article] as $str)

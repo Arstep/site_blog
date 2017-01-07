@@ -1,51 +1,49 @@
 <?php
 
+date_default_timezone_set('Europe/Moscow');
+
+
+function handleException($e)
+{
+    $d = date('Y-m-d H:i:s');
+    $string = "$d:\r\nFILE: " .$e->getFile(). " LINE: " .$e->getLine(). " MESSAGE: " .$e->getMessage(). "\r\n";
+
+    $f = fopen('handle_err.txt', 'a');
+    fwrite($f, $string);
+    fclose($f);
+}
+
+set_exception_handler('handleException');
+
+
+
+const DS = DIRECTORY_SEPARATOR;
+define('SITE_PATH', realpath(__DIR__) .DS);
 
 const LOT_ARTICLES = 4; // количество своих статей в меню на главной странице
 const LOT_LINKS = 6; // количество ссылок на внешние статьи в меню на главной странице
 
 const DB_DSN = "mysql:host=localhost;dbname=yachting;charset=utf8";
-const IMG_PATH = 'img/';
-const VIEWS_SITE = 'views_site/';
-const VIEWS_ADMIN = 'views_admin/';
-
-const SOAP_WDSL_CBR = 'http://www.cbr.ru/DailyInfoWebServ/DailyInfo.asmx?WSDL';
-
 const DB_USERNAME = 'blog';
 const DB_PASSWORD = 'blog';
+
+/*
+ * В константе DATA_IMG_PATH путь указан без первого слэша - потому, что при перемещении файла в файловой
+ * системе командой move_uploaded_file() перед ней подставляется полный путь до папки сайта (иначе получится
+ * путь от корня диска).
+ * При отображении картинок - лидирующий слэш приходится дополнять во вьюхах, чтобы браузер искал картинки от
+ * корня сайта, а не приклеивал путь к строке запроса текущей страницы.
+ * */
+const DATA_IMG_PATH = 'data/img_database/';
+const VIEWS_INDEX = 'views' .DS. 'views_index' .DS;
+const VIEWS_ADMIN = 'views' .DS. 'views_admin' .DS;
+
+const SOAP_WDSL_CBR = 'http://www.cbr.ru/DailyInfoWebServ/DailyInfo.asmx?WSDL';
 
 const ADMIN_NAME = 'blog';
 const ADMIN_PASSWORD = 'blog';
 
 const E_ADRESS_ADMIN = 'adress@mail.ru';
-const E_THEMA_MESSAGE = 'Forma yachting site';
-
-
-
-date_default_timezone_set('Europe/Moscow');
-
-
-function __autoload($className)
-{
-    $name = explode('_', $className);
-    switch ($name[0]){
-        case 'Controller':
-            require_once 'controllers/' . $name[0] . $name[1] . '.php';
-            break;
-        case 'Model':
-            require_once 'models/' . $name[0] . $name[1] . '.php';
-    }
-}
-
-$dbPdo = new PDO(DB_DSN, DB_USERNAME, DB_PASSWORD);
-
-//function handleException($e)
-//{
-//    echo "Сорри, возникла проблема. Попробуйте еще раз позже";
-//    error_log($e->getMessage());
-//}
-//
-//set_exception_handler('handleException');
-
+const E_THEMA_MESSAGE = 'Форма с сайта яхтинга';
 
 
