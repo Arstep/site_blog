@@ -7,7 +7,7 @@
 
     <title>Администрирование сайта</title>
     <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
-    <link rel="stylesheet" type="text/css" href="/views/css/admin_style.css">
+    <link rel="stylesheet" type="text/css" href="/views/css/admin.css">
     <link rel="icon" href="/views/ico/sailboat.ico" type="image/gif">
 </head>
 

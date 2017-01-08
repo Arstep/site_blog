@@ -7,11 +7,10 @@
 
     <title>Парусный яхтинг</title>
     <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
-    <link rel="stylesheet" type="text/css" href="/views/css/blog_style.css">
+    <link rel="stylesheet" type="text/css" href="/views/css/index.css">
     <link rel="icon" href="/views/ico/sailboat.ico" type="image/gif">
 
     <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
-    <script src="/views/js/blog_js.js"></script>
 </head>
 
 <body>

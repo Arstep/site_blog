@@ -1,4 +1,6 @@
-<a href="#" id="toTop">&Lambda;</a>
+<script src="/views/js/to_top.js"></script>
+
+<a href="/" id="toTop">&Lambda;</a>
 
 <section id="article">
     <div id="block">

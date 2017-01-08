@@ -1,3 +1,5 @@
+<script src="/views/js/searchAjax.js"></script>
+
 <section id="search">
 
     <div>

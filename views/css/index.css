@@ -76,26 +76,26 @@ header nav li > a {
 }
 
 #first article {
-    height: 458px;
-    position: absolute;
+    height: 400px;
+    width: 915px;
+    margin: 0 auto;
     text-align: center;
-    top: 150px;
-    width: 100%;
     color: rgb(238, 219, 188);
 }
 
 #first article h1 {
-    font: bold 4em 'PT Sans', sans-serif;
-    position: absolute;
-    top: 130px;
-    left: 10%;
+    font: bold 3.6em 'PT Sans', sans-serif;
+    position: relative;
+    width: 700px;
+    top: 230px;
+    left: calc(200px - 20vw);
     text-shadow: #888 0 0 20px;
 }
 
 #first article p {
     font: 2em 'PT Sans', sans-serif;
     position: relative;
-    top: 370px;
+    top: 340px;
     left: 15%;
     width: 700px;
     text-shadow: #888 0 0 10px;

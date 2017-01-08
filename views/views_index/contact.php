@@ -1,3 +1,5 @@
+<script src="/views/js/validate.js"></script>
+
 <section id="contact">
 
     <div>

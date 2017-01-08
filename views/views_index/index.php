@@ -1,3 +1,6 @@
+<script src="/views/js/index.js"></script>
+<script src="/views/js/to_top.js"></script>
+
 <section id="first">
     <div id="sliderBack" data-counter="0">
         <img src="/views/img/slider3.jpg">
@@ -8,12 +11,11 @@
 
     <article>
         <h1>Самостоятельные походы<br>на парусных яхтах</h1>
-        <p>Самостоятельные походы на парусных яхтах</p>
+        <p>Путешествия на парусных яхтах</p>
         <p>Статьи о переходах и жизни на борту</p>
-        <p>Матчасть, навигация, чартеры</p>
     </article>
 
-    <a href="#" id="toTop">&Lambda;</a>
+    <a href="/" id="toTop">&Lambda;</a>
 </section>
 
 
@@ -52,7 +54,7 @@
 
 
 
-<section id="third" data-type="parallax" data-speed="5">
+<section id="third">
     <div class="note">
         <a href="http://vodabereg.ru/event/kamchatskiy-moryak-poteryalsya-v-tihom-ok/">
             <h4>Камчатский моряк потерялся в Тихом океане, доверившись экстрасенсам</h4>
