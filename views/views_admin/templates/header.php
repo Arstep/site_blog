@@ -22,7 +22,7 @@
             </li>
 
             <li>
-                <a href="/admin/listArticles">Список статей</a>
+                <a href="/admin/index">Список статей</a>
             </li>
 
             <li>

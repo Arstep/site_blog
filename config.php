@@ -6,14 +6,28 @@ date_default_timezone_set('Europe/Moscow');
 function handleException($e)
 {
     $d = date('Y-m-d H:i:s');
-    $string = "$d:\r\nFILE: " .$e->getFile(). " LINE: " .$e->getLine(). " MESSAGE: " .$e->getMessage(). "\r\n";
+    $string = "$d:\r\n(EXCEPTION) FILE: " .$e->getFile(). "   LINE: " .$e->getLine(). "   MESSAGE: " .$e->getMessage(). "\r\n";
 
     $f = fopen('handle_err.txt', 'a');
     fwrite($f, $string);
     fclose($f);
 }
 
+function handleError($errno, $errfile, $errstr, $errline)
+{
+    $d = date('Y-m-d H:i:s');
+    $string = "$d:\r\n(ERROR) errNO: " .$errno. "   errFILE: " .$errfile. "   errSTR: " .$errstr. "   errLINE: " .$errline. "\r\n";
+
+    $f = fopen('handle_err.txt', 'a');
+    fwrite($f, $string);
+    fclose($f);
+
+    /* Не запускаем внутренний обработчик ошибок PHP */
+    return true;
+}
+
 set_exception_handler('handleException');
+set_error_handler('handleError');
 
 
 

@@ -12,6 +12,7 @@ section, footer {min-width: 915px}
     width: 100%;
     position: absolute;
     top: 100px;
+    /*left: calc(50% - 960px);*/
     height: 650px;
     overflow: hidden;
 }

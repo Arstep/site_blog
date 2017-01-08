@@ -17,7 +17,7 @@ class Controller_Admin
         }
     }
 
-    public function listArticles($limit = 1000)
+    public function index($limit = 1000)
     {
         // Берем экземпляр роутера и используем из него $_params
         $router = Router::getInstance();
@@ -38,9 +38,9 @@ class Controller_Admin
             try {
                 $article = new Model_Article($_POST);
                 $article->update();
-                header("Location: /admin/listArticles/status/saved");
+                header("Location: /admin/index/status/saved");
             }catch (Exception $e){
-                header("Location: /admin/listArticles/status/error");
+                header("Location: /admin/index/status/error");
             }
 
         } elseif (isset($_POST{'cancel'})) {
@@ -48,7 +48,7 @@ class Controller_Admin
             // Админ отказался от результатов редактирования: возвращаемся к списку статей
             if (empty($_POST['title']) AND empty($_POST['description']) AND empty($_POST['content']))
             Model_Article::delete($_POST['id']);
-            header("Location: /admin/listArticles");
+            header("Location: /admin/index");
 
         } else {
 
@@ -80,7 +80,7 @@ class Controller_Admin
 
         Model_Article::delete((int)$router->getParams()['id']);
 
-        header("Location: /admin/listArticles/status/deleted");
+        header("Location: /admin/index/status/deleted");
     }
 
     public function deleteImg()

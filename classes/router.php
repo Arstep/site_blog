@@ -48,7 +48,7 @@ class Router
     {
         $class = 'controller_' .$this->_controller;
         $controller = new $class();
-
+        
         $action = $this->_action;
         $controller->$action();
     }

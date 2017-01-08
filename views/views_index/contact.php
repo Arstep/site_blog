@@ -9,14 +9,14 @@
 
         <form action="<?php echo $_SERVER['REQUEST_URI'] ?>" method=post onsubmit="return validate(this)">
             <div align="center">
-                <br/>Имя*<br/>
+                <h4>Форма для связи с администратором</h4>
+                Имя*<br/>
                 <input type="text" name="name" size="40">
                 <br/>Контактный email*<br/>
                 <input type="text" name="email" size="40">
                 <br/>Сообщение*<br/>
                 <textarea rows="5" name="message" cols="40"></textarea>
                 <br/><input type="submit" value="Отправить">
-                *Тестовый режим
             </div>
         </form>
     </div>
@@ -31,7 +31,7 @@
 
 <div id="toadmin">
     <p>&copy;2016. All rights reserved.
-        <a href="/admin/listArticles" onclick="return confirm('Вы уверены что вы администратор?')">
+        <a href="/admin/index" onclick="return confirm('Вы уверены что вы администратор?')">
             Тестовый вход для администратора</a>
     </p>
 </div>

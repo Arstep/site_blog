@@ -126,12 +126,14 @@ class Model_Article
     public static function findAjaxContent($data)
     {
         global $dbPdo;
+
         $string = '% ' .$data. ' %';
 
         $sql = "SELECT id, title, content FROM articles WHERE content LIKE :string LIMIT 10";
         $stm = $dbPdo->prepare($sql);
         $stm->bindParam(':string', $string);
         $stm->execute();
+        
         return $stm->fetchAll(PDO::FETCH_ASSOC);
     }
 
@@ -190,9 +192,6 @@ class Model_Article
              * Записываем новую картинку в файл...
              */
             $link = DATA_IMG_PATH . 'id' . $this->id . '_' . $name . $type;
-    var_dump($link);
-            var_dump(move_uploaded_file($_FILES[$name]['tmp_name'], $link));
-
             /*
              * ..и проверяем, была ли уже у модели картинка для этого имени tooltip - если есть,
              * то изменяем (имя одинаковое, но расширение м.б. другим), если нет - добавляем запись

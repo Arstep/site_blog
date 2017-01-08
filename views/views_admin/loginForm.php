@@ -2,8 +2,15 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width initial-scale=1">
+    <meta name="viewport" content="width=1000">
+
     <title>Вход для администратора</title>
+
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
     <link rel="stylesheet" type="text/css" href="/views/css/admin_style.css">
+    <link rel="icon" href="/views/ico/sailboat.ico" type="image/gif">
+    
     <style>
         table.signup {
             margin: 100px auto;
