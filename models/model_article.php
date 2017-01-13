@@ -167,7 +167,7 @@ class Model_Article
                 continue;
 
             if ($name != 'face' and $name != 'first' and $name != 'second')
-                throw new Exception('Ошибка имени передаваемого поля INPUT с типом file');
+                throw new Exception('Ошибка: имя передаваемого поля INPUT должно быть face, first или second');
 
             switch ($arr['type']) {
                 case 'image/gif':
@@ -192,6 +192,8 @@ class Model_Article
              * Записываем новую картинку в файл...
              */
             $link = DATA_IMG_PATH . 'id' . $this->id . '_' . $name . $type;
+            if ( ! move_uploaded_file($_FILES[$name]['tmp_name'], $link))
+                throw new Exception('Ошибка при попытке сохранения файла - ' .$link. ' на диск');
             /*
              * ..и проверяем, была ли уже у модели картинка для этого имени tooltip - если есть,
              * то изменяем (имя одинаковое, но расширение м.б. другим), если нет - добавляем запись

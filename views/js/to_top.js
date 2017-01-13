@@ -30,7 +30,8 @@ function toTop()
             {
                 $(this).css({
                     'boxShadow': 'none'
-                });$(this).dequeue()
+                });
+                $(this).dequeue()
             })
     })
 }

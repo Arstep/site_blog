@@ -22,3 +22,8 @@ RewriteEngine on
 
                                 # php_flag display_errors On
                                 #ErrorDocument 404 /errors404.html
+# Закрытие паролем папки сайта
+#AuthType Basic
+#AuthName "Restricted Access"
+#AuthUserFile /home/u254532198/public_html/.htpasswd
+#Require user test

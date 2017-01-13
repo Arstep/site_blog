@@ -37,10 +37,6 @@ define('SITE_PATH', realpath(__DIR__) .DS);
 const LOT_ARTICLES = 4; // количество своих статей в меню на главной странице
 const LOT_LINKS = 6; // количество ссылок на внешние статьи в меню на главной странице
 
-const DB_DSN = "mysql:host=localhost;dbname=yachting;charset=utf8";
-const DB_USERNAME = 'blog';
-const DB_PASSWORD = 'blog';
-
 /*
  * В константе DATA_IMG_PATH путь указан без первого слэша - потому, что при перемещении файла в файловой
  * системе командой move_uploaded_file() перед ней подставляется полный путь до папки сайта (иначе получится
@@ -54,10 +50,14 @@ const VIEWS_ADMIN = 'views' .DS. 'views_admin' .DS;
 
 const SOAP_WDSL_CBR = 'http://www.cbr.ru/DailyInfoWebServ/DailyInfo.asmx?WSDL';
 
-const ADMIN_NAME = 'blog';
-const ADMIN_PASSWORD = 'blog';
-
-const E_ADRESS_ADMIN = 'adress@mail.ru';
+const E_ADRESS_ADMIN = 'arstep@mail.ru';
 const E_THEMA_MESSAGE = 'Форма с сайта яхтинга';
 
 
+//Перенести в отдельный файл выше уровня корня сайта
+const DB_DSN = "mysql:host=localhost;dbname=yachting;charset=utf8";
+const DB_USERNAME = 'blog';
+const DB_PASSWORD = 'blog';
+
+const ADMIN_NAME = 'blog';
+const ADMIN_PASSWORD = 'blog';
